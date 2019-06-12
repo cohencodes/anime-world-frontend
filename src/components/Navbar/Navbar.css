@@ -1,0 +1,18 @@
+nav {
+  background-color: #00f;
+  overflow: hidden;
+  padding: 1em;
+
+  border-bottom: 1px solid #000;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 2em;
+  color: #fff;
+}
+
+a:visited {
+  color: red;
+}
