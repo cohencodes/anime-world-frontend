@@ -1,9 +1,11 @@
 import React from 'react';
 import Section from '../Section/Section';
+import Header from '../Header/Header';
 
 const LandingPage = () => {
   return (
     <>
+      <Header />
       <Section>
         <h3>Find New Shows, Get Personal Recommendations.</h3>
         <p>
