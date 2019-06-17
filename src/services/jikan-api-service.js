@@ -3,13 +3,12 @@ import axios from 'axios';
 
 const JikanApiService = {
   getShows(title) {
-    console.log('title from search component:', title);
     return axios
       .get(`https://api.jikan.moe/v3/search/anime?q=${title}`)
       .then(res => res.data.results);
   },
   getCharacters(character) {
-    axios
+    return axios
       .get(`https://api.jikan.moe/v3/search/anime?q=${character}`)
       .then(res => res.data.results);
   }

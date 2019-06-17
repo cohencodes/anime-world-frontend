@@ -7,7 +7,7 @@ class Navbar extends Component {
   renderLoggedOutView = () => {
     return (
       <div className="nav-logged-out">
-        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/signup">Signup</NavLink>
         <NavLink to="/login">Login</NavLink>

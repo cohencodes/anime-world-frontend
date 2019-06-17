@@ -28,7 +28,10 @@ class Search extends Component {
     event.preventDefault();
     const { showTitle } = this.state;
 
-    JikanApiService.getShows(showTitle).then(shows => this.setState({ shows }));
+    JikanApiService.getShows(showTitle).then(shows => {
+      console.log('show results: ', shows);
+      this.setState({ shows });
+    });
   };
 
   handleSearchCharacters = event => {
