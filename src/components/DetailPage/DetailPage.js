@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
 
 class DetailPage extends Component {
+  addToWatchList = show => {
+    console.log('added to watchlist', show);
+  };
+
   render() {
-    const { show } = this.props;
-    console.log('show from detail component', show);
+    const { showData } = this.props;
     return (
       <>
-        <h1>AnimeWorld</h1>
-        <h2>
-          [<em>placeholder for show or character image</em>]
-        </h2>
+        <h1>{showData.title}</h1>
+        <img src={showData.image_url} alt={showData.title} />
         <section>
-          <header>
-            <h3>About This Show</h3>
-          </header>
+          <h3>About This Show</h3>
           <p>
-            This will be information about the show. Lorem ipsum, dolor sit amet
-            consectetur adipisicing elit. Incidunt totam ex, ad recusandae
-            tempore nulla itaque qui, ab officiis culpa nihil maiores
-            accusantium quis iste aspernatur ipsa fugit officia ea.
+            {showData.synopsis}{' '}
+            <a href={showData.url} target="_blank" rel="noopener noreferrer">
+              more
+            </a>
           </p>
+          <h4>Details</h4>
+          <p>SCORE: {showData.score}</p>
+          <p>
+            Currently Airing:{' '}
+            {showData.airing ? <span>Yes</span> : <span>No</span>}
+          </p>
+          <p>Episodes: {showData.episodes}</p>
+          <p>Rated: {showData.rated}</p>
         </section>
+        <button onClick={() => this.addToWatchList(showData)}>
+          Add To My WatchList
+        </button>
         <section>
           <header>
             <h3>Trailers & Clips</h3>

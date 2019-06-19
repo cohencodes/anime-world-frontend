@@ -59,7 +59,7 @@ class Search extends Component {
               id="q"
             />
             <button type="submit">Go</button>
-            <label htmlFor="search">Search Character</label>
+            {/* <label htmlFor="search">Search Character</label>
             <input
               ref="search"
               name="characterTitle"
@@ -69,7 +69,7 @@ class Search extends Component {
               placeholder="Search Anime Character..."
               id="q"
             />
-            <button type="submit">Go</button>
+            <button type="submit">Go</button> */}
           </form>
         </section>
         {this.state.shows ? (

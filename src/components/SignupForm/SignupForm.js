@@ -28,9 +28,9 @@ class SignupForm extends Component {
       password: password.value
     })
       .then(user => {
-        // user_name.value = '';
-        // email.value = '';
-        // password.value = '';
+        user_name.value = '';
+        email.value = '';
+        password.value = '';
         console.log('user posted');
       })
       .catch(res => {
