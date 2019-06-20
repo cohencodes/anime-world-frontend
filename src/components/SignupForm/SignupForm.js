@@ -39,10 +39,12 @@ class SignupForm extends Component {
   };
 
   render() {
+    const { error } = this.state;
     return (
       <section>
         <h1>Create An Account</h1>
         <form className="signup_form" onSubmit={this.handleSubmit}>
+          <div role="alert">{error && <p className="red">{error}</p>}</div>
           <div>
             <label htmlFor="user_name">User Name: </label>
             <input

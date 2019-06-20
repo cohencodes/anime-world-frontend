@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import WatchListService from '../../services/watchlist-api-service';
 
 class DetailPage extends Component {
+  state = {
+    error: null
+  };
+
   addToWatchList = show => {
-    console.log('added to watchlist', show);
+    WatchListService.addToWatchList(show);
   };
 
   render() {

@@ -16,7 +16,6 @@ class SearchResults extends Component {
     const { showResults } = this.props;
     const { showDetailPage, showData } = this.state;
     const showList = showResults.map((show, index) => {
-      console.log('show: ', show);
       return (
         <li key={show.mal_id}>
           <img src={show.image_url} alt={show.image_url} />

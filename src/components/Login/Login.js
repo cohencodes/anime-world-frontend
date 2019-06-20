@@ -18,6 +18,7 @@ class Login extends Component {
         user_name.value = '';
         password.value = '';
         TokenService.saveAuthToken(res.authToken);
+        window.location.reload();
       })
       .catch(res => {
         this.setState({ error: res.error });
@@ -33,7 +34,7 @@ class Login extends Component {
         <form className="login" onSubmit={this.handleSubmitJwtAuth}>
           <div role="alert">{error && <p className="red">{error}</p>}</div>
           <div>
-            <label htmlFor="username">Email</label>
+            <label htmlFor="username">Username</label>
             <input type="text" name="user_name" id="username" />
           </div>
           <div>
