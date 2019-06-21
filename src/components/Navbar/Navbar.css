@@ -1,5 +1,5 @@
 nav {
-  background-color: #00f;
+  background-color: #143d59;
   overflow: hidden;
   padding: 1em;
 
@@ -10,9 +10,9 @@ a {
   text-decoration: none;
   display: inline-block;
   padding: 0 2em;
-  color: #fff;
+  color: #143d59;
 }
 
 a:visited {
-  color: red;
+  color: #f4b41a;
 }

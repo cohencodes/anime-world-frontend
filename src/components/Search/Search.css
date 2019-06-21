@@ -1,0 +1,19 @@
+.searchbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+input {
+  margin: 20px;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #143d59;
+}
+
+input::placeholder {
+  color: #f4b41a;
+}

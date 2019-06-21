@@ -1,0 +1,15 @@
+ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+button {
+  display: block;
+}
+
+img {
+  height: 275px;
+  width: 175px;
+}

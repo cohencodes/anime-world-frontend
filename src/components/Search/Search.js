@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 import JikanApiService from '../../services/jikan-api-service';
+import './Search.css';
 
 class Search extends Component {
   static defaultProps = {
@@ -48,7 +49,7 @@ class Search extends Component {
       <>
         <section>
           <form className="searchbox" onSubmit={this.handleSearchShows}>
-            <label htmlFor="search">Search Show</label>
+            <label htmlFor="search" />
             <input
               ref="search"
               name="showTitle"

@@ -7,6 +7,36 @@ import SignupForm from '../components/SignupForm/SignupForm';
 import Login from '../components/Login/Login';
 import Search from '../components/Search/Search';
 import DetailPage from '../components/DetailPage/DetailPage';
+import WatchList from '../components/WatchList/WatchList';
+import WatchListService from '../services/watchlist-service';
+
+const routes = [
+  {
+    path: '/',
+    component: LandingPage
+  },
+  {
+    path: '/signup',
+    component: SignupForm
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/search',
+    component: Search
+  },
+  {
+    path: '/detailpage',
+    component: DetailPage
+  },
+  {
+    path: '/watchlist',
+    component: WatchList,
+    fetchInitialData: () => WatchListService.getWatchList
+  }
+];
 
 class App extends Component {
   render() {
@@ -15,11 +45,14 @@ class App extends Component {
         <Navbar />
         <main role="main">
           <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route path="/signup" component={SignupForm} />
-            <Route path="/login" component={Login} />
-            <Route path="/search" component={Search} />
-            <Route path="/detailpage" component={DetailPage} />
+            {routes.map(({ path, component: C, fetchInitialData }) => (
+              <Route
+                exact
+                path={path}
+                render={props => <C {...props} data={fetchInitialData} />}
+                key={path}
+              />
+            ))}
           </Switch>
         </main>
       </>

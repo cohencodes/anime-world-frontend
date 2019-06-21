@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import WatchListService from '../services/watchlist-api-service';
 
 const WatchListContext = React.createContext({
   watchList: [],
@@ -16,8 +17,9 @@ export class WatchListProvider extends Component {
     error: null
   };
 
-  setWatchList = articleList => {
-    this.setState({ articleList });
+  setWatchList = () => {
+    const watchList = WatchListService.getWatchList();
+    this.setState({ watchList });
   };
 
   setError = error => {
@@ -35,7 +37,7 @@ export class WatchListProvider extends Component {
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
-      setWatchList: this.setWatchList
+      setWatchList: this.state.watchList
     };
     return (
       <WatchListContext.Provider value={value}>

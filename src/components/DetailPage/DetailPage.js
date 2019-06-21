@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WatchListService from '../../services/watchlist-api-service';
+import WatchListService from '../../services/watchlist-service';
 
 class DetailPage extends Component {
   state = {

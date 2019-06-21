@@ -1,19 +1,31 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
-  color: #444;
   text-align: center;
   line-height: 1.5;
+  background-color: #fff;
+  color: #143d59;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 20px;
+  padding: 12px;
+  background-color: #143d59;
+  color: #f4b41a;
 }
 
 nav,
 footer {
   padding: 1% 0;
-  background-color: #aaa;
 }
 
 nav {
@@ -31,9 +43,15 @@ header {
 section {
   min-height: 200px;
   padding: 6% 0;
-  background-color: #bbb;
+}
+
+button {
+  margin: 20px;
+  padding: 12px;
+  font-size: 1.2rem;
+  color: #f4b41a;
+  background-color: #143d59;
 }
 
 section:nth-child(even) {
-  background-color: #ddd;
 }

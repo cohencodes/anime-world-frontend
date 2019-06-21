@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DetailPage from '../DetailPage/DetailPage';
+import './SearchResults.css';
 
 class SearchResults extends Component {
   state = {
@@ -26,8 +27,8 @@ class SearchResults extends Component {
       );
     });
     return (
-      <section>
-        {!showDetailPage ? <ul>{showList}</ul> : null}
+      <section className="container">
+        {!showDetailPage ? <ul className="list">{showList}</ul> : null}
         {showDetailPage ? <DetailPage showData={showData} /> : null}
       </section>
     );

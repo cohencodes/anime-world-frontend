@@ -17,11 +17,11 @@ class Navbar extends Component {
 
   renderLoggedInView = () => {
     return (
-      <div className="nav-logged-out">
-        <NavLink to="/home">Home</NavLink>
+      <div className="nav-logged-in">
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/search">Search</NavLink>
-        <NavLink to="/signup">WatchList</NavLink>
-        <NavLink to="/login">Logout</NavLink>
+        <NavLink to="/watchlist">WatchList</NavLink>
+        <NavLink to="/">Logout</NavLink>
       </div>
     );
   };
