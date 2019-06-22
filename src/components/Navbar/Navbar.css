@@ -1,18 +1,21 @@
 nav {
-  background-color: #143d59;
+  background-color: #3e8c69;
   overflow: hidden;
-  padding: 1em;
+  padding: 1% 0;
 
-  border-bottom: 1px solid #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
 }
 
 a {
   text-decoration: none;
   display: inline-block;
   padding: 0 2em;
-  color: #143d59;
 }
 
 a:visited {
-  color: #f4b41a;
+  color: #d7a63c;
 }

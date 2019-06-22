@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 import JikanApiService from '../../services/jikan-api-service';
 import './Search.css';
+import YouTubeApiService from '../../services/youtube-api-service';
 
 class Search extends Component {
   static defaultProps = {
@@ -13,7 +14,36 @@ class Search extends Component {
     showTitle: '',
     characterTitle: '',
     shows: [],
-    characters: []
+    videos: [],
+    characters: [],
+    searchEx: [
+      'Naruto',
+      'Bleach',
+      'One Piece',
+      'Fullmetal Alchemist',
+      'Fairy Tale',
+      'Dragon Ball Z',
+      'Code Geass',
+      'Cowboy Bepop',
+      'Pokemon',
+      'HunterxHunter',
+      'Sword Art Online',
+      'Steins;Gate',
+      'Akame ga Kill'
+    ]
+  };
+
+  componentDidMount = () => {
+    const { searchEx } = this.state;
+
+    const input = document.getElementById('search');
+
+    setInterval(() => {
+      input.setAttribute(
+        'placeholder',
+        searchEx[searchEx.push(searchEx.shift()) - 1]
+      );
+    }, 1700);
   };
 
   handleChange = event => {
@@ -25,13 +55,18 @@ class Search extends Component {
     });
   };
 
-  handleSearchShows = event => {
+  handleApiCalls = event => {
     event.preventDefault();
     const { showTitle } = this.state;
 
     JikanApiService.getShows(showTitle).then(shows => {
       console.log('show results: ', shows);
       this.setState({ shows });
+    });
+
+    YouTubeApiService.getVideos(showTitle).then(videos => {
+      console.log('video results: ', videos);
+      this.setState({ videos });
     });
   };
 
@@ -48,7 +83,8 @@ class Search extends Component {
     return (
       <>
         <section>
-          <form className="searchbox" onSubmit={this.handleSearchShows}>
+          <h1>Search for a show</h1>
+          <form className="searchbox" onSubmit={this.handleApiCalls}>
             <label htmlFor="search" />
             <input
               ref="search"
@@ -56,26 +92,16 @@ class Search extends Component {
               onChange={this.handleChange}
               className="searchbox__input"
               type="text"
-              placeholder="Search Anime Title..."
-              id="q"
+              placeholder="Want some suggestions?"
+              id="search"
             />
-            <button type="submit">Go</button>
-            {/* <label htmlFor="search">Search Character</label>
-            <input
-              ref="search"
-              name="characterTitle"
-              onChange={this.handleChange}
-              className="searchbox__input"
-              type="text"
-              placeholder="Search Anime Character..."
-              id="q"
-            />
-            <button type="submit">Go</button> */}
+            <button type="submit">Find Shows</button>
           </form>
         </section>
-        {this.state.shows ? (
+        {this.state.shows.length > 0 ? (
           <SearchResults
             showResults={this.state.shows}
+            videoResults={this.state.videos}
             characterResults={this.state.characters}
           />
         ) : null}

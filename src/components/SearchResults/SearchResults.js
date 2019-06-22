@@ -14,11 +14,11 @@ class SearchResults extends Component {
   };
 
   render() {
-    const { showResults } = this.props;
+    const { showResults, videoResults } = this.props;
     const { showDetailPage, showData } = this.state;
     const showList = showResults.map((show, index) => {
       return (
-        <li key={show.mal_id}>
+        <li key={index}>
           <img src={show.image_url} alt={show.image_url} />
           <button onClick={() => this.renderDetailPage(show)}>
             View Details
@@ -27,9 +27,11 @@ class SearchResults extends Component {
       );
     });
     return (
-      <section className="container">
-        {!showDetailPage ? <ul className="list">{showList}</ul> : null}
-        {showDetailPage ? <DetailPage showData={showData} /> : null}
+      <section className="search-results">
+        {!showDetailPage ? <ul className="show-list">{showList}</ul> : null}
+        {showDetailPage ? (
+          <DetailPage showData={showData} videoResults={videoResults} />
+        ) : null}
       </section>
     );
   }

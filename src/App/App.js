@@ -2,41 +2,11 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import '../index.css';
 import Navbar from '../components/Navbar/Navbar';
-import LandingPage from '../components/LandingPage/LandingPage';
-import SignupForm from '../components/SignupForm/SignupForm';
-import Login from '../components/Login/Login';
-import Search from '../components/Search/Search';
-import DetailPage from '../components/DetailPage/DetailPage';
-import WatchList from '../components/WatchList/WatchList';
-import WatchListService from '../services/watchlist-service';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import routes from '../services/routes';
 
-const routes = [
-  {
-    path: '/',
-    component: LandingPage
-  },
-  {
-    path: '/signup',
-    component: SignupForm
-  },
-  {
-    path: '/login',
-    component: Login
-  },
-  {
-    path: '/search',
-    component: Search
-  },
-  {
-    path: '/detailpage',
-    component: DetailPage
-  },
-  {
-    path: '/watchlist',
-    component: WatchList,
-    fetchInitialData: () => WatchListService.getWatchList
-  }
-];
+library.add(faEnvelope, faKey);
 
 class App extends Component {
   render() {

@@ -45,8 +45,8 @@ class WatchList extends Component {
             return (
               <section>
                 <header>
-                  <h2>{show.title}</h2>
-                  <img src={show.image_url} alt={show.title} />
+                  <h2>{show.data.title}</h2>
+                  <img src={show.data.image_url} alt={show.data.title} />
                 </header>
                 <dl>
                   <dt>Current Episode</dt>

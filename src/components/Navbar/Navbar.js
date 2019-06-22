@@ -21,9 +21,16 @@ class Navbar extends Component {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/watchlist">WatchList</NavLink>
-        <NavLink to="/">Logout</NavLink>
+        <NavLink to="/" onClick={this.handleLogoutClick}>
+          Logout
+        </NavLink>
       </div>
     );
+  };
+
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken();
+    window.location.reload();
   };
 
   render() {

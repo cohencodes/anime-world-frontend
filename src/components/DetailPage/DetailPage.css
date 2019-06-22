@@ -1,0 +1,14 @@
+.grid-container {
+  max-width: 80%;
+  border: 2px solid #3e8c69;
+  padding: 50px;
+  margin: 20px auto;
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+  justify-items: center;
+}
+
+button {
+  height: 50px;
+}

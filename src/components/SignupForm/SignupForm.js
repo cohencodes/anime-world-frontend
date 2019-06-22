@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './SignupForm.css';
 
 class SignupForm extends Component {
   state = {
@@ -20,16 +22,14 @@ class SignupForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { user_name, email, password } = event.target;
+    const { user_name, password } = event.target;
 
     AuthApiService.postUser({
       user_name: user_name.value,
-      email: email.value,
       password: password.value
     })
       .then(user => {
         user_name.value = '';
-        email.value = '';
         password.value = '';
         console.log('user posted');
       })
@@ -42,43 +42,39 @@ class SignupForm extends Component {
     const { error } = this.state;
     return (
       <section>
-        <h1>Create An Account</h1>
+        <h1>Sign Up</h1>
         <form className="signup_form" onSubmit={this.handleSubmit}>
-          <div role="alert">{error && <p className="red">{error}</p>}</div>
+          <div role="alert">{error && <p className="error">{error}</p>}</div>
           <div>
-            <label htmlFor="user_name">User Name: </label>
+            <label htmlFor="user_name">
+              <FontAwesomeIcon icon="envelope" color="#6DB65B" size="sm" />{' '}
+              Username{' '}
+            </label>
             <input
               type="text"
               name="user_name"
               id="user_name"
               value={this.state.user_name}
               onChange={this.handleChange}
+              placeholder="username..."
               required
             />
           </div>
           <div>
-            <label htmlFor="email">Email: </label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password: </label>
+            <label htmlFor="password">
+              <FontAwesomeIcon icon="key" color="#6DB65B" size="sm" /> Password{' '}
+            </label>
             <input
               type="password"
               name="password"
               id="password"
               value={this.state.password}
               onChange={this.handleChange}
+              placeholder="password..."
               required
             />
           </div>
-          <button type="submit">Sign Up</button>
+          <button type="submit">Count me in</button>
         </form>
       </section>
     );

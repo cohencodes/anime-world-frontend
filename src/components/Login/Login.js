@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Login extends Component {
   state = { error: null };
@@ -29,17 +30,31 @@ class Login extends Component {
     const { error } = this.state;
     return (
       <section>
-        <h1>NANI!?!?</h1>
-        <h3>You haven't logged in yet?</h3>
+        <h1>Log In</h1>
         <form className="login" onSubmit={this.handleSubmitJwtAuth}>
           <div role="alert">{error && <p className="red">{error}</p>}</div>
           <div>
-            <label htmlFor="username">Username</label>
-            <input type="text" name="user_name" id="username" />
+            <label htmlFor="user_name">
+              <FontAwesomeIcon icon="envelope" color="#6DB65B" size="sm" />{' '}
+              Username{' '}
+            </label>{' '}
+            <input
+              type="text"
+              name="user_name"
+              id="username"
+              placeholder="username..."
+            />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <label htmlFor="password">
+              <FontAwesomeIcon icon="key" color="#6DB65B" size="sm" /> Password{' '}
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password..."
+            />
           </div>
           <button type="submit">Log In</button>
         </form>
