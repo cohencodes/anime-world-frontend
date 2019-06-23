@@ -1,11 +1,11 @@
 import React from 'react';
-import '../../index.css';
+import './YouTubeVideos.css';
 
 const YouTubeVideos = props => {
   const { videoResults } = props;
   return (
-    <section className="youtube-results">
-      <ul className="youtube-ul">
+    <section className="youtube_results">
+      <ul className="youtube_ul">
         {videoResults.map(video => {
           return (
             <li key={video.id.videoId} className="video-container">

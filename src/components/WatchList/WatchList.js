@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-// import WatchListService from '../../services/watchlist-service';
 import TokenService from '../../services/token-service';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import config from '../../config';
+import WatchListForm from '../WatchListForm/WatchListForm';
+import './WatchList.css';
 
 class WatchList extends Component {
   state = {
@@ -12,52 +13,49 @@ class WatchList extends Component {
   };
 
   componentDidMount = () => {
+    this.getWatchList();
+  };
+
+  getWatchList = () => {
     const authToken = TokenService.getAuthToken();
     const decoded = jwtDecode(authToken);
     axios({
       method: 'get',
-      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}`,
+      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/`,
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       }
     })
       .then(watchList => {
-        console.log('response: ', watchList);
-        this.setState({ watchList }, this.setWatchList());
+        this.setState({ watchList, isLoading: false });
       })
       .catch(error => console.log(error));
   };
 
-  setWatchList = () => {
-    this.setState({ isLoading: false });
-  };
-
   render() {
-    console.log('watchlist from state', this.state.watchList);
-    const { watchList } = this.state;
+    const { watchList, isLoading } = this.state;
     return (
       <>
-        {this.state.isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          watchList.map(show => {
-            return (
-              <section>
-                <header>
-                  <h2>{show.data.title}</h2>
-                  <img src={show.data.image_url} alt={show.data.title} />
-                </header>
-                <dl>
-                  <dt>Current Episode</dt>
-                  <dd>9</dd>
-                </dl>
-                <button>Edit</button>
-                <button>Delete</button>
-              </section>
-            );
-          })
-        )}
+        <ul className="watchlist_ul">
+          {!isLoading ? (
+            watchList.data.map((show, index) => {
+              return (
+                <li key={index} className="watchlist_li">
+                  <h2>{show.title}</h2>
+                  <img src={show.image_url} alt={show.title} />
+                  <dl>
+                    <dt>Current Episode</dt>
+                    <dd>{show.episode_number}</dd>
+                  </dl>
+                  <WatchListForm title={show.title} />
+                </li>
+              );
+            })
+          ) : (
+            <h3>Loading...</h3>
+          )}
+        </ul>
       </>
     );
   }

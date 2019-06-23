@@ -31,7 +31,6 @@ class SignupForm extends Component {
       .then(user => {
         user_name.value = '';
         password.value = '';
-        console.log('user posted');
       })
       .catch(res => {
         this.setState({ error: res.error });

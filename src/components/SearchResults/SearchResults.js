@@ -9,7 +9,6 @@ class SearchResults extends Component {
   };
 
   renderDetailPage = showData => {
-    console.log('details: ', showData);
     this.setState({ showData, showDetailPage: true });
   };
 

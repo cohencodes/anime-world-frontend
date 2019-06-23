@@ -1,0 +1,13 @@
+.youtube_results {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  max-width: 70%;
+  margin: 50px auto;
+  padding: 6% 0;
+  border: 2px solid #3e8c69;
+}
+
+.youtube_ul {
+  list-style: none;
+}

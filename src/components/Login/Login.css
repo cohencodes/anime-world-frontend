@@ -1,0 +1,8 @@
+.login_form label {
+  display: block;
+  text-align: left;
+}
+
+.login_form input {
+  width: 100%;
+}

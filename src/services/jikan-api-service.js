@@ -9,6 +9,10 @@ const JikanApiService = {
   getCharacters(character) {
     const url = `https://api.jikan.moe/v3/search/anime?q=${character}`;
     return axios.get(url).then(res => res.data.results);
+  },
+  getTopRecommendedShows() {
+    const url = `https://api.jikan.moe/v3/search/anime?order_by=score`;
+    return axios.get(url).then(res => res.data.results);
   }
 };
 

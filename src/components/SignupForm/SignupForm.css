@@ -1,8 +1,8 @@
-label {
+.signup_form label {
   display: block;
   text-align: left;
 }
 
-input {
+.signup_form input {
   width: 100%;
 }

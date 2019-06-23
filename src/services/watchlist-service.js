@@ -7,7 +7,6 @@ const WatchListService = {
   addToWatchList(show) {
     const authToken = TokenService.getAuthToken();
     const decoded = jwtDecode(authToken);
-    console.log('decoded token: ', decoded);
     axios({
       method: 'post',
       url: `${config.API_ENDPOINT}/watchlist/`,
@@ -21,27 +20,29 @@ const WatchListService = {
         image_url: show.image_url
       }
     })
-      .then(res => console.log('addtoWatchlistAxios: ', res))
+      .then(res => {
+        return res;
+      })
       .catch(error => console.log(error));
   },
-  deleteFromWatchList(show) {
+  deleteFromWatchList(title) {
     const authToken = TokenService.getAuthToken();
     const decoded = jwtDecode(authToken);
-    console.log('decoded token: ', decoded);
     axios({
-      method: 'post',
-      url: `${config.API_ENDPOINT}/watchlist/`,
+      method: 'delete',
+      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/delete`,
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       data: {
         user_id: decoded.user_id,
-        title: show.title,
-        image_url: show.image_url
+        title
       }
     })
-      .then(res => console.log('addtoWatchlistAxios: ', res))
+      .then(res => {
+        return res;
+      })
       .catch(error => console.log(error));
   },
   getWatchList() {
@@ -56,7 +57,27 @@ const WatchListService = {
       }
     })
       .then(res => {
-        console.log('response: ', res);
+        return res;
+      })
+      .catch(error => console.log(error));
+  },
+  changeEpisodeNumber(changeData) {
+    const authToken = TokenService.getAuthToken();
+    const decoded = jwtDecode(authToken);
+    axios({
+      method: 'put',
+      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/change`,
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      data: {
+        user_id: decoded.user_id,
+        episode_number: changeData.episode_number,
+        title: changeData.title
+      }
+    })
+      .then(res => {
         return res;
       })
       .catch(error => console.log(error));

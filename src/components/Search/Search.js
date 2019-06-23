@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 import JikanApiService from '../../services/jikan-api-service';
-import './Search.css';
 import YouTubeApiService from '../../services/youtube-api-service';
+import './Search.css';
 
 class Search extends Component {
   static defaultProps = {
@@ -60,12 +60,10 @@ class Search extends Component {
     const { showTitle } = this.state;
 
     JikanApiService.getShows(showTitle).then(shows => {
-      console.log('show results: ', shows);
       this.setState({ shows });
     });
 
     YouTubeApiService.getVideos(showTitle).then(videos => {
-      console.log('video results: ', videos);
       this.setState({ videos });
     });
   };
@@ -84,7 +82,7 @@ class Search extends Component {
       <>
         <section>
           <h1>Search for a show</h1>
-          <form className="searchbox" onSubmit={this.handleApiCalls}>
+          <form className="search_form" onSubmit={this.handleApiCalls}>
             <label htmlFor="search" />
             <input
               ref="search"
@@ -95,7 +93,9 @@ class Search extends Component {
               placeholder="Want some suggestions?"
               id="search"
             />
-            <button type="submit">Find Shows</button>
+            <button type="submit" className="search_button">
+              Find Shows
+            </button>
           </form>
         </section>
         {this.state.shows.length > 0 ? (

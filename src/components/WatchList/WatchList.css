@@ -1,0 +1,12 @@
+.watchlist_ul {
+  list-style: none;
+}
+
+.watchlist_li {
+  margin: 100px;
+  border: 2px solid #3e8c69;
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+  justify-items: center;
+}

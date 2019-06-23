@@ -1,7 +1,12 @@
-.searchbox {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 25px;
+.search_form label {
+  display: block;
+  text-align: left;
+}
+
+.search_form input {
+  width: 100%;
+}
+
+.search_button {
+  margin: 0 auto;
 }

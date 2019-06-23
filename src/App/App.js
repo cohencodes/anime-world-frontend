@@ -3,10 +3,26 @@ import { Switch, Route } from 'react-router-dom';
 import '../index.css';
 import Navbar from '../components/Navbar/Navbar';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faKey,
+  faSearch,
+  faStickyNote,
+  faInfoCircle,
+  faEdit,
+  faTrashAlt
+} from '@fortawesome/free-solid-svg-icons';
 import routes from '../services/routes';
 
-library.add(faEnvelope, faKey);
+library.add(
+  faEnvelope,
+  faKey,
+  faSearch,
+  faStickyNote,
+  faInfoCircle,
+  faEdit,
+  faTrashAlt
+);
 
 class App extends Component {
   render() {
