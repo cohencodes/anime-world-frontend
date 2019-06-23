@@ -31,11 +31,11 @@ class WatchListForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { episode_number } = event.target;
+    const { episode_number } = this.state;
 
     const data = {
       title: this.props.title,
-      episode_number: episode_number.value
+      episode_number
     };
 
     WatchListService.changeEpisodeNumber(data);
