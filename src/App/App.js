@@ -10,9 +10,12 @@ import {
   faStickyNote,
   faInfoCircle,
   faEdit,
-  faTrashAlt
+  faTrashAlt,
+  faPlayCircle,
+  faArrowAltCircleUp
 } from '@fortawesome/free-solid-svg-icons';
 import routes from '../services/routes';
+import Footer from '../components/Footer/Footer';
 
 library.add(
   faEnvelope,
@@ -21,7 +24,9 @@ library.add(
   faStickyNote,
   faInfoCircle,
   faEdit,
-  faTrashAlt
+  faTrashAlt,
+  faPlayCircle,
+  faArrowAltCircleUp
 );
 
 class App extends Component {
@@ -40,6 +45,7 @@ class App extends Component {
               />
             ))}
           </Switch>
+          <Footer />
         </main>
       </>
     );

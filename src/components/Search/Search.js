@@ -16,6 +16,8 @@ class Search extends Component {
     shows: [],
     videos: [],
     characters: [],
+    recs: [],
+    isLoading: true,
     searchEx: [
       'Naruto',
       'Bleach',
@@ -44,6 +46,14 @@ class Search extends Component {
         searchEx[searchEx.push(searchEx.shift()) - 1]
       );
     }, 1700);
+
+    this.getShows();
+  };
+
+  getShows = async () => {
+    const recs = await JikanApiService.getTopRecommendedShows();
+
+    this.setState({ recs, isLoading: false });
   };
 
   handleChange = event => {
@@ -78,6 +88,7 @@ class Search extends Component {
   };
 
   render() {
+    const { shows, isLoading, recs } = this.state;
     return (
       <>
         <section>
@@ -98,7 +109,14 @@ class Search extends Component {
             </button>
           </form>
         </section>
-        {this.state.shows.length > 0 ? (
+        {/* <section>
+          {!isLoading ? (
+            <Recommendations shows={recs} />
+          ) : (
+            <h3>Loading...</h3>
+          )}
+        </section> */}
+        {shows.length > 0 ? (
           <SearchResults
             showResults={this.state.shows}
             videoResults={this.state.videos}

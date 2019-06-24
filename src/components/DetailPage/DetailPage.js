@@ -21,13 +21,26 @@ class DetailPage extends Component {
           <img src={showData.image_url} alt={showData.title} />
           <div className="details">
             <h4>Details</h4>
-            <p>SCORE: {showData.score}</p>
             <p>
-              Currently Airing:{' '}
-              {showData.airing ? <span>Yes</span> : <span>No</span>}
+              <span className="bold">SCORE:</span>{' '}
+              <span className="p_detail">{showData.score}</span>
             </p>
-            <p>Episodes: {showData.episodes}</p>
-            <p>Rated: {showData.rated}</p>
+            <p>
+              <span className="bold">Currently Airing:</span>{' '}
+              {showData.airing ? (
+                <span className="p_detail">Yes</span>
+              ) : (
+                <span className="p_detail">No</span>
+              )}
+            </p>
+            <p>
+              <span className="bold">Episodes:</span>{' '}
+              <span className="p_detail">{showData.episodes}</span>
+            </p>
+            <p>
+              <span className="bold">Rated:</span>{' '}
+              <span className="p_detail">{showData.rated}</span>
+            </p>
           </div>
           <button onClick={() => this.addToWatchList(showData)}>
             Add To My WatchList

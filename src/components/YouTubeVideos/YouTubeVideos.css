@@ -1,13 +1,24 @@
-.youtube_results {
+.youtube_ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  list-style: none;
   max-width: 70%;
   margin: 50px auto;
   padding: 6% 0;
   border: 2px solid #3e8c69;
 }
 
-.youtube_ul {
-  list-style: none;
+.youtube_img {
+  width: 300px;
+  height: 150px;
+}
+
+.youtube_ul button {
+  height: auto;
+  margin: 20px auto;
+}
+
+.youtube_ul a {
+  color: #ffffff;
 }

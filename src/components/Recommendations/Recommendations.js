@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 
-class Recommendations extends Component {
-  // state = {
-  //   isLoading: true
-  // };
+class RecommendationsCarousel extends Component {
   render() {
     const { shows } = this.props;
-    // const { isLoading } = this.state;
     return (
       <Carousel>
-        {shows.map((show, index) => {
+        {shows.map(show => {
           return (
             <>
-              <div key={index}>
+              <div key={show.mal_id}>
                 <img src={show.image_url} alt={show.image_url} />
                 <p className="legend">Legend 1</p>
               </div>
@@ -26,4 +22,4 @@ class Recommendations extends Component {
   }
 }
 
-export default Recommendations;
+export default RecommendationsCarousel;

@@ -1,37 +1,43 @@
 import React from 'react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './YouTubeVideos.css';
 
 const YouTubeVideos = props => {
   const { videoResults } = props;
   return (
-    <section className="youtube_results">
+    <>
+      <h1>YouTube Videos</h1>
       <ul className="youtube_ul">
         {videoResults.map(video => {
           return (
             <li key={video.id.videoId} className="video-container">
-              <h4>
+              <p>
                 {video.snippet.title
                   .split(' ')
                   .splice(0, 4)
                   .join(' ')}
                 ...
-              </h4>
+              </p>
               <img
                 src={video.snippet.thumbnails.medium.url}
                 alt={video.snippet.title}
+                className="youtube_img"
               />
-              <a
-                href={'http://youtube.com/watch?v=' + video.id.videoId}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Watch
-              </a>
+              <button>
+                <a
+                  href={'http://youtube.com/watch?v=' + video.id.videoId}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {/* <FontAwesomeIcon icon="play-circle" color="#6DB65B" size="3x" />{' '} */}
+                  Watch
+                </a>
+              </button>
             </li>
           );
         })}
       </ul>
-    </section>
+    </>
   );
 };
 

@@ -12,3 +12,22 @@
 button {
   height: 50px;
 }
+
+.grid-container p {
+  margin: 30px;
+  text-align: left;
+}
+
+.grid-container h4 {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.p_detail {
+  font-size: 1.3rem;
+  background-color: #3e8c69;
+  padding: 10px;
+}

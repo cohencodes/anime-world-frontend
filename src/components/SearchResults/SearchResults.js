@@ -15,9 +15,9 @@ class SearchResults extends Component {
   render() {
     const { showResults, videoResults } = this.props;
     const { showDetailPage, showData } = this.state;
-    const showList = showResults.map((show, index) => {
+    const showList = showResults.map(show => {
       return (
-        <li key={index}>
+        <li key={show.mal_id}>
           <img src={show.image_url} alt={show.image_url} />
           <button onClick={() => this.renderDetailPage(show)}>
             View Details

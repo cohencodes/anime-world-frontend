@@ -7,6 +7,7 @@ const YouTubeApiService = {
       part: 'snippet',
       maxResults: 6,
       q: title,
+      chart: 'mostPopular',
       type: 'video',
       key: config.GOOGLE_API_KEY
     };
