@@ -4,10 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Footer extends Component {
   handleClick = () => {
-    console.log('button clicked');
-
-    //TODO: implement button styling and scroll functionality
+    this.topFunction();
   };
+
+  topFunction = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  };
+
   render() {
     return (
       <footer>

@@ -41,7 +41,7 @@ class WatchList extends Component {
           {!isLoading ? (
             watchList.data.map(show => {
               return (
-                <li key={show.mal_id} className="watchlist_li">
+                <li key={show.id} className="watchlist_li">
                   <h2>{show.title}</h2>
                   <img src={show.image_url} alt={show.title} />
                   <dl>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header';
 import JikanApiService from '../../services/jikan-api-service';
-import LandingInfo from './LandingInfo';
+import LandingInfo from '../LandingInfo/LandingInfo';
 import SearchResults from '../SearchResults/SearchResults';
 import YouTubeApiService from '../../services/youtube-api-service';
 
@@ -35,7 +35,10 @@ class LandingPage extends Component {
       <>
         <Header />
         {!isLoading ? (
-          <SearchResults showResults={recommendations} videoResults={vids} />
+          <>
+            <h2>Discover Top Anime</h2>
+            <SearchResults showResults={recommendations} videoResults={vids} />
+          </>
         ) : (
           <h3>Loading...</h3>
         )}
