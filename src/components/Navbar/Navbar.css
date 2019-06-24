@@ -1,5 +1,4 @@
 nav {
-  background-color: #3e8c69;
   overflow: hidden;
   padding: 1% 0;
 
@@ -8,14 +7,22 @@ nav {
   left: 0;
   right: 0;
   z-index: 10;
+  font-size: 1.2rem;
+  color: black;
 }
 
-a {
+nav a {
   text-decoration: none;
   display: inline-block;
-  padding: 0 2em;
+  margin: 0.6em;
+  padding: 0.6em;
+  background-color: #ab24a1;
+  color: #ffffff;
 }
 
-a:visited {
-  color: #d7a63c;
+nav a:hover,
+nav a:focus {
+  background-color: #1b2733;
+  color: #ffffff;
+  transition: all 0.4s ease;
 }

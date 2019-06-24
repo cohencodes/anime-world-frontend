@@ -29,7 +29,7 @@ const YouTubeVideos = props => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* <FontAwesomeIcon icon="play-circle" color="#6DB65B" size="3x" />{' '} */}
+                  {/* <FontAwesomeIcon icon="play-circle" color="#ab24a1" size="3x" />{' '} */}
                   Watch
                 </a>
               </button>

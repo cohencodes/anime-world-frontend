@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
 import JikanApiService from '../../services/jikan-api-service';
 import LandingInfo from '../LandingInfo/LandingInfo';
 import SearchResults from '../SearchResults/SearchResults';
@@ -33,7 +32,7 @@ class LandingPage extends Component {
     const { recommendations, vids, isLoading } = this.state;
     return (
       <>
-        <Header />
+        <LandingInfo />
         {!isLoading ? (
           <>
             <h2>Discover Top Anime</h2>
@@ -42,7 +41,6 @@ class LandingPage extends Component {
         ) : (
           <h3>Loading...</h3>
         )}
-        <LandingInfo />
       </>
     );
   }

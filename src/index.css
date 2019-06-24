@@ -9,12 +9,11 @@ html {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20px;
+  font-family: 'Karla', sans-serif;
   text-align: center;
   line-height: 1.5;
-  background-color: #fff;
-  color: #212528;
+  background-color: #ffffff;
+  color: #637282;
 }
 
 h1,
@@ -23,7 +22,8 @@ h3,
 h4 {
   margin: 20px;
   padding: 12px;
-  color: #d7a63c;
+  color: #1b2733;
+  font-family: 'Rubik', sans-serif;
 }
 
 section {
@@ -32,7 +32,7 @@ section {
 }
 
 form {
-  border: 2px solid #3e8c69;
+  border: 2px solid #ab24a1;
   width: 70%;
   max-width: 70%;
   margin: 0px auto;
@@ -43,15 +43,11 @@ footer {
   padding: 1% 0;
 }
 
-header {
-  padding: 12% 0;
-}
-
 input {
   margin: 20px;
   padding: 12px;
   font-size: 1.2rem;
-  border: 2px solid #3e8c69;
+  border: 2px solid #ab24a1;
 }
 
 input::placeholder {
@@ -65,9 +61,10 @@ input::placeholder {
 button {
   margin: 20px;
   padding: 12px;
+  font-family: 'Rubik', sans-serif;
   font-size: 1.2rem;
   color: #ffffff;
-  background-color: #3e8c69;
+  background-color: #ab24a1;
   display: block;
   cursor: pointer;
 }
@@ -75,8 +72,11 @@ button {
 button:hover {
   background-color: #212528;
   color: #ffffff;
-  font-size: 1.3rem;
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
+}
+
+a {
+  text-decoration: none;
 }
 
 img {

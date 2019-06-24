@@ -54,7 +54,7 @@ class SignupForm extends Component {
           </div>
           <div>
             <label htmlFor="user_name">
-              <FontAwesomeIcon icon="envelope" color="#6DB65B" size="sm" />{' '}
+              <FontAwesomeIcon icon="envelope" color="#ab24a1" size="sm" />{' '}
               Username{' '}
             </label>
             <input
@@ -69,7 +69,7 @@ class SignupForm extends Component {
           </div>
           <div>
             <label htmlFor="password">
-              <FontAwesomeIcon icon="key" color="#6DB65B" size="sm" /> Password{' '}
+              <FontAwesomeIcon icon="key" color="#ab24a1" size="sm" /> Password{' '}
             </label>
             <input
               type="password"

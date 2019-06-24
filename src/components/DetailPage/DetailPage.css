@@ -1,6 +1,6 @@
 .grid-container {
   max-width: 80%;
-  border: 2px solid #3e8c69;
+  border: 2px solid #ab24a1;
   padding: 50px;
   margin: 20px auto;
 
@@ -22,12 +22,21 @@ button {
   text-align: center;
 }
 
+.grid-container h1 {
+  font-size: 2rem;
+}
+
+.grid-container a {
+  color: #ab24a1;
+}
+
 .bold {
   font-weight: bold;
 }
 
 .p_detail {
   font-size: 1.3rem;
-  background-color: #3e8c69;
+  background-color: #ab24a1;
+  color: #ffffff;
   padding: 10px;
 }

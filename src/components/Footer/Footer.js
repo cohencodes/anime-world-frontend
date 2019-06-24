@@ -22,7 +22,7 @@ class Footer extends Component {
           <button className="scroll-button" onClick={this.handleClick}>
             <FontAwesomeIcon
               icon="arrow-alt-circle-up"
-              color="#6DB65B"
+              color="#ffffff"
               size="lg"
             />{' '}
           </button>

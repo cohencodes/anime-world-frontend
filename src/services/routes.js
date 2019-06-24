@@ -11,6 +11,10 @@ const routes = [
     component: LandingPage
   },
   {
+    path: '/home',
+    component: LandingPage
+  },
+  {
     path: '/signup',
     component: SignupForm
   },

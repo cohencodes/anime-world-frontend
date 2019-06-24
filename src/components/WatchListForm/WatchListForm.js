@@ -51,7 +51,7 @@ class WatchListForm extends Component {
           {editClicked ? (
             <div>
               <button onClick={this.handleEditClick}>
-                <FontAwesomeIcon icon="edit" color="#6DB65B" size="sm" /> Edit{' '}
+                <FontAwesomeIcon icon="edit" color="#ab24a1" size="sm" /> Edit{' '}
               </button>
               <label htmlFor="episode_number" />
               <input
@@ -69,14 +69,14 @@ class WatchListForm extends Component {
               {' '}
               <FontAwesomeIcon
                 icon="edit"
-                color="#6DB65B"
+                color="#ffffff"
                 size="sm"
               /> Edit{' '}
             </button>
           )}
           <button type="submit" onClick={this.handleDeleteShow}>
             {' '}
-            <FontAwesomeIcon icon="trash-alt" color="#6DB65B" size="sm" />{' '}
+            <FontAwesomeIcon icon="trash-alt" color="#ffffff" size="sm" />{' '}
             Delete{' '}
           </button>
         </form>

@@ -7,11 +7,17 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #3e8c69;
+  background-color: #ab24a1;
 }
 
 footer p {
+  color: #ffffff;
   font-size: 1.2rem;
+  margin: 10px;
+}
+
+footer a {
+  color: #ffffff;
 }
 
 footer button {
@@ -20,17 +26,20 @@ footer button {
   padding: 0;
   text-decoration: none;
   font-size: 1.2rem;
-  color: #ffffff;
   padding: 10px;
   border-radius: 50%;
 }
 
 footer button:hover,
-footer button:focus,
+footer button:focus {
+  background-color: #1b2733;
+  color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
 footer a:hover,
 footer a:focus {
-  font-size: 1.4rem;
-  color: #212528;
-  border-radius: 50%;
+  color: #1b2733;
   transition: all 0.4s ease;
 }

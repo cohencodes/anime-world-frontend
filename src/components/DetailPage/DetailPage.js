@@ -50,8 +50,8 @@ class DetailPage extends Component {
     const { error, addedToWatchlist } = this.state;
     return (
       <>
-        <h1>{showData.title}</h1>
         <section className="grid-container">
+          <h1>{showData.title}</h1>
           <img src={showData.image_url} alt={showData.title} />
           <div className="details">
             <h4>Details</h4>
@@ -87,11 +87,12 @@ class DetailPage extends Component {
             Add To My WatchList
           </button>
           {addedToWatchlist ? (
-            <FontAwesomeIcon icon="check-circle" color="#6DB65B" size="3x" />
+            <FontAwesomeIcon icon="check-circle" color="#ab24a1" size="3x" />
           ) : null}
           <p>
             {showData.synopsis}
             <a href={showData.url} target="_blank" rel="noopener noreferrer">
+              {' '}
               more
             </a>
           </p>
