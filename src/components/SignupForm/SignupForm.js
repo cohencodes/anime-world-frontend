@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthApiService from '../../services/auth-api-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Emoji from '../Emoji/Emoji';
 import './SignupForm.css';
 
 class SignupForm extends Component {
@@ -31,10 +32,9 @@ class SignupForm extends Component {
       .then(user => {
         user_name.value = '';
         password.value = '';
-        console.log(user);
+        return user;
       })
       .catch(res => {
-        console.log(res);
         this.setState({ error: res.error });
       });
   };
@@ -45,7 +45,13 @@ class SignupForm extends Component {
       <section>
         <h1>Sign Up</h1>
         <form className="signup_form" onSubmit={this.handleSubmit}>
-          <div role="alert">{error && <p className="error">{error}</p>}</div>
+          <div role="alert">
+            {error && (
+              <p className="error">
+                {error} <Emoji symbol="😃" />
+              </p>
+            )}
+          </div>
           <div>
             <label htmlFor="user_name">
               <FontAwesomeIcon icon="envelope" color="#6DB65B" size="sm" />{' '}

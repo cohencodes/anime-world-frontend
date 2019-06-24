@@ -9,6 +9,7 @@ import './WatchList.css';
 class WatchList extends Component {
   state = {
     watchList: [],
+    edited: false,
     isLoading: true
   };
 
@@ -30,7 +31,7 @@ class WatchList extends Component {
       .then(watchList => {
         this.setState({ watchList, isLoading: false });
       })
-      .catch(error => console.log(error));
+      .catch(error => error.response.data.error);
   };
 
   render() {

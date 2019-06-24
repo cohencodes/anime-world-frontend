@@ -23,7 +23,9 @@ const WatchListService = {
       .then(res => {
         return res;
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        return error.response.data.error;
+      });
   },
   deleteFromWatchList(title) {
     const authToken = TokenService.getAuthToken();
@@ -43,7 +45,7 @@ const WatchListService = {
       .then(res => {
         return res;
       })
-      .catch(error => console.log(error));
+      .catch(error => error.response.data.errors);
   },
   getWatchList() {
     const authToken = TokenService.getAuthToken();
@@ -59,7 +61,7 @@ const WatchListService = {
       .then(res => {
         return res;
       })
-      .catch(error => console.log(error));
+      .catch(error => error.response.data.errors);
   },
   changeEpisodeNumber(changeData) {
     const authToken = TokenService.getAuthToken();
@@ -80,7 +82,7 @@ const WatchListService = {
       .then(res => {
         return res;
       })
-      .catch(error => console.log(error));
+      .catch(error => error.response.data.error);
   }
 };
 

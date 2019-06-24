@@ -88,7 +88,7 @@ class Search extends Component {
   };
 
   render() {
-    const { shows, isLoading, recs } = this.state;
+    const { shows } = this.state;
     return (
       <>
         <section>

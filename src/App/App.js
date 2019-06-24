@@ -12,7 +12,8 @@ import {
   faEdit,
   faTrashAlt,
   faPlayCircle,
-  faArrowAltCircleUp
+  faArrowAltCircleUp,
+  faCheckCircle
 } from '@fortawesome/free-solid-svg-icons';
 import routes from '../services/routes';
 import Footer from '../components/Footer/Footer';
@@ -26,7 +27,8 @@ library.add(
   faEdit,
   faTrashAlt,
   faPlayCircle,
-  faArrowAltCircleUp
+  faArrowAltCircleUp,
+  faCheckCircle
 );
 
 class App extends Component {

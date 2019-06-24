@@ -7,6 +7,7 @@ class WatchListForm extends Component {
   state = {
     editClicked: false,
     episode_number: '',
+    dataChanged: false,
     error: null
   };
 
@@ -32,9 +33,10 @@ class WatchListForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { episode_number } = this.state;
+    const { title } = this.props;
 
     const data = {
-      title: this.props.title,
+      title,
       episode_number
     };
 
