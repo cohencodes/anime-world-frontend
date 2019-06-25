@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Emoji from '../Emoji/Emoji';
 import './Login.css';
 
 class Login extends Component {
@@ -33,7 +34,13 @@ class Login extends Component {
       <section>
         <h1>Log In</h1>
         <form className="login_form" onSubmit={this.handleSubmitJwtAuth}>
-          <div role="alert">{error && <p className="red">{error}</p>}</div>
+          <div role="alert">
+            {error && (
+              <p className="error">
+                {error} <Emoji symbol="😃" />
+              </p>
+            )}
+          </div>{' '}
           <div>
             <label htmlFor="user_name">
               <FontAwesomeIcon icon="envelope" color="#ab24a1" size="sm" />{' '}

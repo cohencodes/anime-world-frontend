@@ -13,13 +13,13 @@ class LandingPage extends Component {
 
   componentDidMount = () => {
     this.getShows();
-    this.getVids();
+    // this.getVids();
   };
 
   getShows = async () => {
     const recommendations = await JikanApiService.getTopRecommendedShows();
 
-    this.setState({ recommendations });
+    this.setState({ recommendations, isLoading: false });
   };
 
   getVids = async () => {

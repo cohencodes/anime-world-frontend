@@ -1,3 +1,7 @@
+.search_form {
+  max-width: 50%;
+}
+
 .search_form label {
   display: block;
   text-align: left;

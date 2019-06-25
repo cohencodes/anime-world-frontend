@@ -5,7 +5,8 @@ import './LandingInfo.css';
 const LandingInfo = () => {
   return (
     <>
-      <div className="landing_page">
+      <div className="landing_info">
+        <h1>AnimeWorld</h1>
         <section>
           <FontAwesomeIcon icon="search" color="#ab24a1" size="3x" />{' '}
           <h3>Find New Shows, Get Recommendations.</h3>

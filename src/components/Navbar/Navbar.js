@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
-import Header from '../Header/Header';
 import TokenService from '../../services/token-service';
 
 class Navbar extends Component {
@@ -42,7 +41,6 @@ class Navbar extends Component {
             ? this.renderLoggedInView()
             : this.renderLoggedOutView()}
         </nav>
-        <Header />
       </>
     );
   }

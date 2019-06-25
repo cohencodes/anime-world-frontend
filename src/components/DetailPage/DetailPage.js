@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import YouTubeVideos from '../YouTubeVideos/YouTubeVideos';
+import CommentForm from '../CommentForm/CommentForm';
+import Forum from '../Forum/Forum';
 import './DetailPage.css';
 import TokenService from '../../services/token-service';
 import jwtDecode from 'jwt-decode';
@@ -10,8 +12,8 @@ import Emoji from '../Emoji/Emoji';
 
 class DetailPage extends Component {
   state = {
-    error: null,
-    addedToWatchlist: false
+    addedToWatchlist: false,
+    error: null
   };
 
   addToWatchList = show => {
@@ -46,7 +48,7 @@ class DetailPage extends Component {
   };
 
   render() {
-    const { showData, videoResults } = this.props;
+    const { showData, videoResults, comments } = this.props;
     const { error, addedToWatchlist } = this.state;
     return (
       <>
@@ -97,7 +99,15 @@ class DetailPage extends Component {
             </a>
           </p>
         </section>
-        <YouTubeVideos videoResults={videoResults} />
+        <section>
+          <CommentForm title={showData.title} />
+        </section>
+        <section>
+          <Forum comments={comments} />
+        </section>
+        <section>
+          <YouTubeVideos videoResults={videoResults} />
+        </section>
       </>
     );
   }

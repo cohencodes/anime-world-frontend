@@ -14,7 +14,9 @@ import {
   faTrashAlt,
   faPlayCircle,
   faArrowAltCircleUp,
-  faCheckCircle
+  faCheckCircle,
+  faComment,
+  faComments
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -27,7 +29,9 @@ library.add(
   faTrashAlt,
   faPlayCircle,
   faArrowAltCircleUp,
-  faCheckCircle
+  faCheckCircle,
+  faComment,
+  faComments
 );
 
 ReactDOM.render(

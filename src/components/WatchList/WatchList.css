@@ -1,5 +1,7 @@
 .watchlist_ul {
   list-style: none;
+  max-width: 60%;
+  margin: 0 auto;
 }
 
 .watchlist_li {
@@ -10,4 +12,5 @@
   display: grid;
   grid-template-columns: 40% 60%;
   justify-items: center;
+  font-size: 1.4rem;
 }
