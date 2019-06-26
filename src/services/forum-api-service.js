@@ -28,25 +28,46 @@ const ForumApiService = {
         return error.response.data.error;
       });
   },
-  deleteComment(id) {
+  deleteComment(comment_id) {
     const authToken = TokenService.getAuthToken();
     const decoded = jwtDecode(authToken);
     axios({
       method: 'delete',
-      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/delete`,
+      url: `${config.API_ENDPOINT}/forum/${decoded.user_id}/${comment_id}`,
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       data: {
         user_id: decoded.user_id,
-        id
+        comment_id
       }
     })
       .then(res => {
         return res;
       })
       .catch(error => error.response.data.errors);
+  },
+  editComment(comment_id, newComment) {
+    const authToken = TokenService.getAuthToken();
+    const decoded = jwtDecode(authToken);
+    axios({
+      method: 'put',
+      url: `${config.API_ENDPOINT}/forum/${decoded.user_id}/${comment_id}`,
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      data: {
+        user_id: decoded.user_id,
+        comment_id,
+        newComment
+      }
+    })
+      .then(res => {
+        return res;
+      })
+      .catch(error => error.response.data.error);
   },
   getComments(title) {
     axios({
@@ -61,27 +82,6 @@ const ForumApiService = {
         return res.data;
       })
       .catch(error => error.response.data.errors);
-  },
-  editComment(changeData) {
-    const authToken = TokenService.getAuthToken();
-    const decoded = jwtDecode(authToken);
-    axios({
-      method: 'put',
-      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/change`,
-      headers: {
-        authorization: `bearer ${TokenService.getAuthToken()}`,
-        'content-type': 'application/json'
-      },
-      data: {
-        user_id: decoded.user_id,
-        episode_number: changeData.episode_number,
-        title: changeData.title
-      }
-    })
-      .then(res => {
-        return res;
-      })
-      .catch(error => error.response.data.error);
   }
 };
 

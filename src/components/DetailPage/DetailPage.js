@@ -52,7 +52,7 @@ class DetailPage extends Component {
     const { error, addedToWatchlist } = this.state;
     return (
       <>
-        <section className="grid-container">
+        <section className="detail_container">
           <h1>{showData.title}</h1>
           <img src={showData.image_url} alt={showData.title} />
           <div className="details">

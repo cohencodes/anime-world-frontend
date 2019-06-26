@@ -109,13 +109,6 @@ class Search extends Component {
             </button>
           </form>
         </section>
-        {/* <section>
-          {!isLoading ? (
-            <Recommendations shows={recs} />
-          ) : (
-            <h3>Loading...</h3>
-          )}
-        </section> */}
         {shows.length > 0 ? (
           <SearchResults
             showResults={this.state.shows}

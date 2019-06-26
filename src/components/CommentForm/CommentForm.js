@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Emoji from '../Emoji/Emoji';
 import ForumApiService from '../../services/forum-api-service';
+import './CommentForm.css';
 
 class CommentForm extends Component {
   state = {
@@ -25,6 +26,7 @@ class CommentForm extends Component {
     const { title } = this.props;
 
     ForumApiService.postComment(comment, title);
+    window.location.reload();
   };
 
   render() {

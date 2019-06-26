@@ -1,42 +1,8 @@
-.grid-container {
+.detail_container {
   max-width: 60%;
-  border: 2px solid #ab24a1;
-  padding: 30px;
+  margin: 0 auto;
+}
+
+.detail_container button {
   margin: 20px auto;
-
-  display: grid;
-  grid-template-columns: 40% 60%;
-  justify-items: center;
-}
-
-button {
-  height: 50px;
-}
-
-.grid-container p {
-  margin: 30px;
-  text-align: left;
-}
-
-.grid-container h4 {
-  text-align: center;
-}
-
-.grid-container h1 {
-  font-size: 2rem;
-}
-
-.grid-container a {
-  color: #ab24a1;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.p_detail {
-  font-size: 1.3rem;
-  background-color: #ab24a1;
-  color: #ffffff;
-  padding: 10px;
 }

@@ -46,7 +46,6 @@ footer {
 input {
   margin: 20px;
   padding: 12px;
-  font-size: 1.2rem;
   border: 2px solid #ab24a1;
 }
 
@@ -59,14 +58,14 @@ input::placeholder {
 }
 
 button {
-  margin: 20px;
+  width: 100px;
   padding: 12px;
   font-family: 'Rubik', sans-serif;
-  font-size: 1.2rem;
   color: #ffffff;
   background-color: #ab24a1;
   display: block;
   cursor: pointer;
+  margin: 20px auto;
 }
 
 button:hover {

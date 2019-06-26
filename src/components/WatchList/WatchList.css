@@ -12,5 +12,4 @@
   display: grid;
   grid-template-columns: 40% 60%;
   justify-items: center;
-  font-size: 1.4rem;
 }

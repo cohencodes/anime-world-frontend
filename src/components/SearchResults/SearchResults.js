@@ -4,6 +4,7 @@ import './SearchResults.css';
 import config from '../../config';
 import axios from 'axios';
 import TokenService from '../../services/token-service';
+// import LinkButton from '../LinkButton/LinkButton';
 
 class SearchResults extends Component {
   state = {
@@ -62,9 +63,7 @@ class SearchResults extends Component {
           ) : (
             <h3>Loading...</h3>
           )
-        ) : (
-          <h3>Loading...</h3>
-        )}
+        ) : null}
       </section>
     );
   }
