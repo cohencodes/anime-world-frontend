@@ -23,7 +23,7 @@ class Footer extends Component {
             <FontAwesomeIcon
               icon="arrow-alt-circle-up"
               color="#ffffff"
-              size="lg"
+              size="2x"
             />{' '}
           </button>
         </div>

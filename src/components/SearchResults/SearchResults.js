@@ -4,7 +4,6 @@ import './SearchResults.css';
 import config from '../../config';
 import axios from 'axios';
 import TokenService from '../../services/token-service';
-// import LinkButton from '../LinkButton/LinkButton';
 
 class SearchResults extends Component {
   state = {
@@ -40,16 +39,31 @@ class SearchResults extends Component {
   };
 
   render() {
-    const { showResults, videoResults } = this.props;
+    const { showResults, videoResults, recs } = this.props;
     const { isLoading, showDetailPage, showData, comments } = this.state;
-    const showList = showResults.map(show => {
+    let showList;
+    if (recs) {
+      showList = recs.map(show => {
+        return (
+          <li key={show.mal_id}>
+            <img src={show.image_url} alt={show.image_url} />
+            <p>{show.title}</p>
+            <button onClick={() => this.getComments(show)}>View Details</button>
+          </li>
+        );
+      });
+      console.log('showlist: ', showList);
+    }
+    showList = showResults.map(show => {
       return (
         <li key={show.mal_id}>
           <img src={show.image_url} alt={show.image_url} />
+          <p className="show_title">{show.title}</p>
           <button onClick={() => this.getComments(show)}>View Details</button>
         </li>
       );
     });
+
     return (
       <section className="search-results">
         {!showDetailPage ? <ul className="show-list">{showList}</ul> : null}

@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router-dom';
 import Emoji from '../Emoji/Emoji';
 import './Login.css';
 
 class Login extends Component {
-  state = { error: null };
+  state = {
+    error: null
+  };
 
   handleSubmitJwtAuth = event => {
     event.preventDefault();
@@ -20,6 +23,20 @@ class Login extends Component {
       .then(res => {
         user_name.value = '';
         password.value = '';
+        TokenService.saveAuthToken(res.authToken);
+        window.location.reload();
+      })
+      .catch(res => {
+        this.setState({ error: res.error });
+      });
+  };
+
+  handleDemo = () => {
+    AuthApiService.postLogin({
+      user_name: 'demoaccount',
+      password: 'demoAccount@123'
+    })
+      .then(res => {
         TokenService.saveAuthToken(res.authToken);
         window.location.reload();
       })
@@ -65,6 +82,7 @@ class Login extends Component {
             />
           </div>
           <button type="submit">Log In</button>
+          <button onClick={this.handleDemo}>Demo</button>
         </form>
       </section>
     );

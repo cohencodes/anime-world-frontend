@@ -88,7 +88,7 @@ class Search extends Component {
   };
 
   render() {
-    const { shows } = this.state;
+    const { shows, recs, videos, characters } = this.state;
     return (
       <>
         <section>
@@ -109,11 +109,21 @@ class Search extends Component {
             </button>
           </form>
         </section>
-        {shows.length > 0 ? (
+        {recs.length > 0 ? (
+          <>
+            <h2>Recommended For You</h2>
+            <SearchResults
+              showResults={recs}
+              videoResults={videos}
+              characterResults={characters}
+            />
+          </>
+        ) : null}
+        {shows.length > 0 || recs.length > 0 ? (
           <SearchResults
-            showResults={this.state.shows}
-            videoResults={this.state.videos}
-            characterResults={this.state.characters}
+            showResults={shows}
+            videoResults={videos}
+            characterResults={characters}
           />
         ) : null}
       </>

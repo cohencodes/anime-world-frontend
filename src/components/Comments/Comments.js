@@ -2,7 +2,6 @@ import React from 'react';
 
 const Comments = ({ comments, edit, remove }) => {
   return comments.map((comment, index) => {
-    console.log(comment);
     return (
       <li key={index}>
         <p>{comment.user_name}</p>

@@ -1,3 +1,7 @@
+.login_form {
+  max-width: 50%;
+}
+
 .login_form label {
   display: block;
   text-align: left;

@@ -13,10 +13,10 @@ import {
   faEdit,
   faTrashAlt,
   faPlayCircle,
-  faArrowAltCircleUp,
   faCheckCircle,
   faComment,
-  faComments
+  faComments,
+  faArrowAltCircleUp
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -28,10 +28,10 @@ library.add(
   faEdit,
   faTrashAlt,
   faPlayCircle,
-  faArrowAltCircleUp,
   faCheckCircle,
   faComment,
-  faComments
+  faComments,
+  faArrowAltCircleUp
 );
 
 ReactDOM.render(

@@ -32,11 +32,16 @@ class SignupForm extends Component {
       .then(user => {
         user_name.value = '';
         password.value = '';
+        this.props.history.push('/login');
         return user;
       })
       .catch(res => {
         this.setState({ error: res.error });
       });
+  };
+
+  handleClick = () => {
+    this.props.history.push('/login');
   };
 
   render() {
@@ -82,6 +87,7 @@ class SignupForm extends Component {
             />
           </div>
           <button type="submit">Count me in</button>
+          <button onClick={this.handleClick}>Have an account?</button>
         </form>
       </section>
     );

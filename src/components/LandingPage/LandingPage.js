@@ -3,6 +3,7 @@ import JikanApiService from '../../services/jikan-api-service';
 import LandingInfo from '../LandingInfo/LandingInfo';
 import SearchResults from '../SearchResults/SearchResults';
 import YouTubeApiService from '../../services/youtube-api-service';
+import './LandingPage.css';
 
 class LandingPage extends Component {
   state = {
@@ -32,6 +33,7 @@ class LandingPage extends Component {
     const { recommendations, vids, isLoading } = this.state;
     return (
       <>
+        <h1 className="banner">AnimeWorld</h1>
         <LandingInfo />
         {!isLoading ? (
           <>
