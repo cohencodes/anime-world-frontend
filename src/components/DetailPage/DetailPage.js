@@ -17,12 +17,13 @@ class DetailPage extends Component {
   };
 
   addToWatchList = show => {
+    console.log('add to watchlist ran');
     if (TokenService.hasAuthToken()) {
       const authToken = TokenService.getAuthToken();
       const decoded = jwtDecode(authToken);
       axios({
         method: 'post',
-        url: `${config.API_ENDPOINT}/watchlist/`,
+        url: `${config.API_ENDPOINT}/watchlist`,
         headers: {
           authorization: `bearer ${TokenService.getAuthToken()}`,
           'content-type': 'application/json'
@@ -38,7 +39,8 @@ class DetailPage extends Component {
           return res;
         })
         .catch(error => {
-          this.setState({ error: error.response.data.error });
+          console.log('error from detail: ', error);
+          this.setState({ error: error.response });
         });
     } else {
       this.setState({

@@ -11,7 +11,7 @@ Anime World is a react app using the Jikan API to give fans the ability to
 
 ## Screenshots
 
-![Home Page](https://imgur.com/ZLTuFBU.png) ![WatchList](https://imgur.com/urcD2No.png)
+![Home Page](https://imgur.com/ZxHjfbq.png) ![WatchList](https://imgur.com/ad4VNA0.png)
 
 Anime uses the following API's:
 

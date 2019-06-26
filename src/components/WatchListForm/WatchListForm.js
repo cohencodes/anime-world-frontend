@@ -25,15 +25,17 @@ class WatchListForm extends Component {
   };
 
   handleDeleteShow = () => {
-    const { title } = this.props;
+    const { title, handleDataChanged } = this.props;
 
     WatchListService.deleteFromWatchList(title);
+    handleDataChanged();
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const { episode_number } = this.state;
-    const { title } = this.props;
+    const { title, handleDataChanged } = this.props;
+    const { episode_number: ep_num } = event.target;
 
     const data = {
       title,
@@ -41,8 +43,11 @@ class WatchListForm extends Component {
     };
 
     WatchListService.changeEpisodeNumber(data);
-    window.location.reload();
+    ep_num.value = '';
+    handleDataChanged();
+    this.handleEditClick();
   };
+
   render() {
     const { editClicked } = this.state;
     return (

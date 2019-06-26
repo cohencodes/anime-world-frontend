@@ -18,6 +18,7 @@ class Search extends Component {
     characters: [],
     recs: [],
     isLoading: true,
+    searchSubmitted: false,
     searchEx: [
       'Naruto',
       'Bleach',
@@ -70,7 +71,7 @@ class Search extends Component {
     const { showTitle } = this.state;
 
     JikanApiService.getShows(showTitle).then(shows => {
-      this.setState({ shows });
+      this.setState({ shows, searchSubmitted: true });
     });
 
     YouTubeApiService.getVideos(showTitle).then(videos => {
@@ -88,7 +89,14 @@ class Search extends Component {
   };
 
   render() {
-    const { shows, recs, videos, characters } = this.state;
+    const {
+      shows,
+      recs,
+      videos,
+      characters,
+      showTitle,
+      searchSubmitted
+    } = this.state;
     return (
       <>
         <section>
@@ -110,21 +118,33 @@ class Search extends Component {
           </form>
         </section>
         {recs.length > 0 ? (
+          !searchSubmitted ? (
+            <>
+              <h2>Recommended For You</h2>
+              <SearchResults
+                showResults={recs}
+                videoResults={videos}
+                characterResults={characters}
+              />
+            </>
+          ) : null
+        ) : null}
+        {shows.length > 0 ? (
           <>
-            <h2>Recommended For You</h2>
+            <h2>
+              Showing Results for{' '}
+              {showTitle &&
+                showTitle
+                  .split(' ')
+                  .map(word => word[0].toUpperCase() + word.slice(1))
+                  .join(' ')}
+            </h2>
             <SearchResults
-              showResults={recs}
+              showResults={shows}
               videoResults={videos}
               characterResults={characters}
             />
           </>
-        ) : null}
-        {shows.length > 0 || recs.length > 0 ? (
-          <SearchResults
-            showResults={shows}
-            videoResults={videos}
-            characterResults={characters}
-          />
         ) : null}
       </>
     );

@@ -10,7 +10,8 @@ class WatchList extends Component {
   state = {
     watchList: [],
     edited: false,
-    isLoading: true
+    isLoading: true,
+    dataChanged: false
   };
 
   componentDidMount = () => {
@@ -34,29 +35,43 @@ class WatchList extends Component {
       .catch(error => error.response.data.error);
   };
 
+  handleDataChanged = () => {
+    console.log('handle data changed ran');
+    this.getWatchList();
+    this.setState({ dataChanged: true, isLoading: false });
+  };
+
   render() {
     const { watchList, isLoading } = this.state;
+    let watchListData;
+    if (!isLoading) {
+      watchListData = watchList.data.map(show => {
+        return (
+          <li key={show.id} className="watchlist_li">
+            <p>{show.title}</p>
+            <img src={show.image_url} alt={show.title} />
+            <dl>
+              <dt>Current Episode</dt>
+              <dd>
+                <span>{show.episode_number}</span>
+              </dd>
+            </dl>
+            <WatchListForm
+              title={show.title}
+              handleDataChanged={this.handleDataChanged}
+            />
+          </li>
+        );
+      });
+    }
+
     return (
       <>
-        <ul className="watchlist_ul">
-          {!isLoading ? (
-            watchList.data.map(show => {
-              return (
-                <li key={show.id} className="watchlist_li">
-                  <h2>{show.title}</h2>
-                  <img src={show.image_url} alt={show.title} />
-                  <dl>
-                    <dt>Current Episode</dt>
-                    <dd>{show.episode_number}</dd>
-                  </dl>
-                  <WatchListForm title={show.title} />
-                </li>
-              );
-            })
-          ) : (
-            <h3>Loading...</h3>
-          )}
-        </ul>
+        {!isLoading ? (
+          <ul className="watchlist_ul">{watchListData}</ul>
+        ) : (
+          <h3 className="loading">Loading...</h3>
+        )}
       </>
     );
   }

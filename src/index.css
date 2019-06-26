@@ -82,6 +82,10 @@ img {
   width: 175px;
 }
 
+.loading {
+  margin-top: 400px;
+}
+
 /* 
 section:nth-child(even) {
 } */

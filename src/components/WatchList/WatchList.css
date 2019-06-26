@@ -1,10 +1,37 @@
 .watchlist_ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
   list-style: none;
-  max-width: 60%;
-  margin: 0 auto;
+  max-width: 70%;
+  margin: 50px auto;
+  padding: 4% 0;
 }
 
 .watchlist_li {
+  padding: 12px;
+}
+
+.watchlist_li form {
+  padding: 0;
+}
+
+.watchlist_li button {
+  margin: 5px auto;
+}
+
+.watchlist_li span {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* .watchlist_ul {
+  list-style: none;
+  max-width: 60%;
+  margin: 0 auto;
+} */
+
+/* .watchlist_li {
   margin: 100px;
   padding: 20px;
   border: 2px solid #ab24a1;
@@ -12,4 +39,4 @@
   display: grid;
   grid-template-columns: 40% 60%;
   justify-items: center;
-}
+} */

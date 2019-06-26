@@ -14,7 +14,7 @@ class LandingPage extends Component {
 
   componentDidMount = () => {
     this.getShows();
-    // this.getVids();
+    this.getVids();
   };
 
   getShows = async () => {

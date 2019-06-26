@@ -52,13 +52,12 @@ class SearchResults extends Component {
           </li>
         );
       });
-      console.log('showlist: ', showList);
     }
     showList = showResults.map(show => {
       return (
         <li key={show.mal_id}>
           <img src={show.image_url} alt={show.image_url} />
-          <p className="show_title">{show.title}</p>
+          <p className="show_title">{show.title.slice(0, 19)} ...</p>
           <button onClick={() => this.getComments(show)}>View Details</button>
         </li>
       );

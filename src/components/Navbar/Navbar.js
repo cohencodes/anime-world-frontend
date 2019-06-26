@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import TokenService from '../../services/token-service';
+import jwtDecode from 'jwt-decode';
 
 class Navbar extends Component {
+  getUserName = () => {
+    const authToken = TokenService.getAuthToken();
+    const decoded = jwtDecode(authToken);
+    return decoded.sub;
+  };
   renderLoggedOutView = () => {
     return (
       <div className="nav-logged-out">
@@ -24,6 +30,7 @@ class Navbar extends Component {
         <NavLink to="/" onClick={this.handleLogoutClick}>
           Logout
         </NavLink>
+        <p className="welcome_message"> Welcome, {this.getUserName()}!</p>
       </div>
     );
   };
