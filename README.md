@@ -1,6 +1,6 @@
 # Anime World
 
-## Live: https://anime-world.cohencodes.now.sh/
+#### Live: https://anime-world.cohencodes.now.sh/
 
 Anime World is a react app using the Jikan API to give fans the ability to
 
@@ -11,7 +11,7 @@ Anime World is a react app using the Jikan API to give fans the ability to
 
 ## Screenshots
 
-![Home Page](https://imgur.com/ZxHjfbq.png) ![WatchList](https://imgur.com/ad4VNA0.png)
+![Home Page](https://imgur.com/8aPUDhZ.png) ![WatchList](https://imgur.com/oZu3Loe.png)
 
 Anime uses the following API's:
 

@@ -43,7 +43,10 @@ class WatchListForm extends Component {
     };
 
     WatchListService.changeEpisodeNumber(data);
-    ep_num.value = '';
+
+    if (ep_num) {
+      ep_num.value = '';
+    }
     handleDataChanged();
     this.handleEditClick();
   };

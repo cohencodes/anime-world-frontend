@@ -17,7 +17,6 @@ class DetailPage extends Component {
   };
 
   addToWatchList = show => {
-    console.log('add to watchlist ran');
     if (TokenService.hasAuthToken()) {
       const authToken = TokenService.getAuthToken();
       const decoded = jwtDecode(authToken);
@@ -39,7 +38,6 @@ class DetailPage extends Component {
           return res;
         })
         .catch(error => {
-          console.log('error from detail: ', error);
           this.setState({ error: error.response });
         });
     } else {
@@ -93,7 +91,7 @@ class DetailPage extends Component {
           {addedToWatchlist ? (
             <FontAwesomeIcon icon="check-circle" color="#ab24a1" size="3x" />
           ) : null}
-          <p>
+          <p className="synopsis">
             {showData.synopsis}
             <a href={showData.url} target="_blank" rel="noopener noreferrer">
               {' '}

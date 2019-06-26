@@ -3,6 +3,32 @@
   margin: 0 auto;
 }
 
+.detail_container h1 {
+  margin: 0;
+}
+
+.detail_container h4 {
+  margin: 0;
+}
+
 .detail_container button {
   margin: 20px auto;
+}
+
+.detail_container p {
+  margin-bottom: 7px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.p_detail {
+  padding: 3px;
+  color: #ffffff;
+  background-color: #ab24a1;
+}
+
+p.synopsis {
+  margin: 40px;
 }

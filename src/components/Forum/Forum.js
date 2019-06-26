@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Comments from '../Comments/Comments';
 import ForumApiService from '../../services/forum-api-service';
+import './Forum.css';
 
 class Forum extends Component {
   state = {
@@ -10,7 +10,7 @@ class Forum extends Component {
   };
   handleEditComment = (id, newComment) => {
     // TODO: add input button to comment component
-    // functionality for editing comments
+    // TODO: functionality for editing comments
     console.log('edit comment', id, newComment);
   };
 
@@ -21,9 +21,8 @@ class Forum extends Component {
   render() {
     const { comments } = this.props;
     return (
-      <section>
+      <section className="forum_container">
         <h1>Comments</h1>
-        <FontAwesomeIcon icon="comment" color="#ab24a1" size="lg" />
         <ul>
           <Comments
             comments={comments}

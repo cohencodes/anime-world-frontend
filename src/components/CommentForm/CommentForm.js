@@ -8,6 +8,7 @@ class CommentForm extends Component {
   state = {
     user_name: '',
     comment: '',
+    comment_posted: false,
     error: null
   };
 
@@ -26,11 +27,12 @@ class CommentForm extends Component {
     const { title } = this.props;
 
     ForumApiService.postComment(comment, title);
-    window.location.reload();
+    this.setState({ comment_posted: true });
+    console.log('comment posted');
   };
 
   render() {
-    const { error } = this.state;
+    const { error, comment_posted } = this.state;
     return (
       <form className="comment_form" onSubmit={this.handleSubmit}>
         <div role="alert">
@@ -52,7 +54,12 @@ class CommentForm extends Component {
           placeholder="comment"
           required
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="submit">
+          Submit
+        </button>
+        {comment_posted ? (
+          <FontAwesomeIcon icon="check-circle" color="#ab24a1" size="3x" />
+        ) : null}
       </form>
     );
   }
