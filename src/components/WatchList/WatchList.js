@@ -4,6 +4,7 @@ import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import config from '../../config';
 import WatchListForm from '../WatchListForm/WatchListForm';
+import { Redirect } from 'react-router-dom';
 import './WatchList.css';
 
 class WatchList extends Component {
@@ -15,7 +16,9 @@ class WatchList extends Component {
   };
 
   componentDidMount = () => {
-    this.getWatchList();
+    if (TokenService.hasAuthToken()) {
+      this.getWatchList();
+    }
   };
 
   getWatchList = () => {
@@ -41,6 +44,9 @@ class WatchList extends Component {
   };
 
   render() {
+    if (!TokenService.hasAuthToken()) {
+      return <Redirect to="/home" />;
+    }
     const { watchList, isLoading } = this.state;
     let watchListData;
     if (!isLoading) {

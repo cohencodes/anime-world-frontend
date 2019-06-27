@@ -13,6 +13,13 @@ class CommentForm extends Component {
     error: null
   };
 
+  componentDidUpdate = () => {
+    const { comment_posted } = this.state;
+    if (comment_posted) {
+      this.props.handleUpdateComments();
+    }
+  };
+
   handleChange = event => {
     const value = event.target.value;
     const name = event.target.name;

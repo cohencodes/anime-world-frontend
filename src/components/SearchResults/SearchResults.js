@@ -38,6 +38,11 @@ class SearchResults extends Component {
       .catch(error => error.response.data.errors);
   };
 
+  handleUpdateComments = () => {
+    const { showData } = this.state;
+    this.getComments(showData);
+  };
+
   render() {
     const { showResults, videoResults, recs } = this.props;
     const { isLoading, showDetailPage, showData, comments } = this.state;
@@ -72,6 +77,7 @@ class SearchResults extends Component {
               showData={showData}
               videoResults={videoResults}
               comments={comments}
+              handleUpdateComments={this.handleUpdateComments}
             />
           ) : (
             <h3>Loading...</h3>

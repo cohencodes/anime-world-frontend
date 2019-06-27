@@ -48,7 +48,12 @@ class DetailPage extends Component {
   };
 
   render() {
-    const { showData, videoResults, comments } = this.props;
+    const {
+      showData,
+      videoResults,
+      comments,
+      handleUpdateComments
+    } = this.props;
     const { error, addedToWatchlist } = this.state;
     return (
       <>
@@ -100,7 +105,10 @@ class DetailPage extends Component {
           </p>
         </section>
         <section>
-          <CommentForm title={showData.title} />
+          <CommentForm
+            title={showData.title}
+            handleUpdateComments={handleUpdateComments}
+          />
         </section>
         <section>
           <Forum comments={comments} />

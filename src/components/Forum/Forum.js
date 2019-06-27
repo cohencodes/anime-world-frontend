@@ -18,6 +18,7 @@ class Forum extends Component {
     await ForumApiService.deleteComment(id);
     this.setState({ deleteComment: true });
   };
+
   render() {
     const { comments } = this.props;
     return (
