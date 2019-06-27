@@ -38,7 +38,7 @@ class DetailPage extends Component {
           return res;
         })
         .catch(error => {
-          this.setState({ error: error.response });
+          this.setState({ error: error.response.data.error });
         });
     } else {
       this.setState({

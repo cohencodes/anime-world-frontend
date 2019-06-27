@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router-dom';
 import Emoji from '../Emoji/Emoji';
 import './Login.css';
 
@@ -46,6 +47,9 @@ class Login extends Component {
 
   render() {
     const { error } = this.state;
+    if (TokenService.hasAuthToken()) {
+      return <Redirect to="/home" />;
+    }
     return (
       <section>
         <h1>Log In</h1>

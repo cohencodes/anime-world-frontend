@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Emoji from '../Emoji/Emoji';
 import ForumApiService from '../../services/forum-api-service';
 import './CommentForm.css';
+import TokenService from '../../services/token-service';
 
 class CommentForm extends Component {
   state = {
@@ -26,9 +27,14 @@ class CommentForm extends Component {
     const { comment } = this.state;
     const { title } = this.props;
 
-    ForumApiService.postComment(comment, title);
-    this.setState({ comment_posted: true });
-    console.log('comment posted');
+    if (TokenService.hasAuthToken()) {
+      ForumApiService.postComment(comment, title);
+      this.setState({ comment_posted: true });
+    } else {
+      this.setState({
+        error: 'You must sign up or sign in first'
+      });
+    }
   };
 
   render() {

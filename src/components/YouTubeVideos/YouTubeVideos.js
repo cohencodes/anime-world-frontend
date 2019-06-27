@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './YouTubeVideos.css';
 
 const YouTubeVideos = props => {
@@ -8,6 +7,9 @@ const YouTubeVideos = props => {
     <>
       <h1>YouTube Videos</h1>
       <ul className="youtube_ul">
+        {videoResults.length === 0 && (
+          <p>Sorry, these aren't available right now :)</p>
+        )}
         {videoResults.map(video => {
           return (
             <li key={video.id.videoId} className="video-container">
@@ -29,7 +31,6 @@ const YouTubeVideos = props => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {/* <FontAwesomeIcon icon="play-circle" color="#ab24a1" size="3x" />{' '} */}
                   Watch
                 </a>
               </button>

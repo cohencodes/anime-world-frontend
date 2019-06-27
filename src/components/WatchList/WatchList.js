@@ -36,7 +36,6 @@ class WatchList extends Component {
   };
 
   handleDataChanged = () => {
-    console.log('handle data changed ran');
     this.getWatchList();
     this.setState({ dataChanged: true, isLoading: false });
   };
