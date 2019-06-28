@@ -75,6 +75,7 @@ class Search extends Component {
     });
 
     YouTubeApiService.getVideos(showTitle).then(videos => {
+      console.log('videos ran', videos);
       this.setState({ videos });
     });
   };

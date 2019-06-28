@@ -4,6 +4,7 @@
 
 .comment_container button {
   display: inline-block;
+  font-size: 1rem;
 }
 
 .comment p {
@@ -13,4 +14,11 @@
 .comment {
   font-size: 1.2rem;
   color: black;
+}
+
+@media only screen and (max-width: 760px) {
+  .comment_container h1 {
+    font-size: 1.2rem;
+    margin-top: 2%;
+  }
 }

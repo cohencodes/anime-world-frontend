@@ -11,14 +11,18 @@ class WatchList extends Component {
   state = {
     watchList: [],
     edited: false,
-    isLoading: true,
-    dataChanged: false
+    isLoading: true
   };
 
   componentDidMount = () => {
     if (TokenService.hasAuthToken()) {
-      this.getWatchList();
+      this.timer = setInterval(() => this.getWatchList(), 1000);
     }
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer);
+    this.timer = null;
   };
 
   getWatchList = () => {
@@ -36,11 +40,6 @@ class WatchList extends Component {
         this.setState({ watchList, isLoading: false });
       })
       .catch(error => error.response.data.error);
-  };
-
-  handleDataChanged = () => {
-    this.getWatchList();
-    this.setState({ dataChanged: true, isLoading: false });
   };
 
   render() {
@@ -61,10 +60,7 @@ class WatchList extends Component {
                 <span>{show.episode_number}</span>
               </dd>
             </dl>
-            <WatchListForm
-              title={show.title}
-              handleDataChanged={this.handleDataChanged}
-            />
+            <WatchListForm title={show.title} />
           </li>
         );
       });

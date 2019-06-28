@@ -29,8 +29,14 @@ nav a:focus {
 .welcome_message {
   position: fixed;
   top: 2%;
-  left: 80%;
+  left: 75%;
   z-index: 10;
   white-space: nowrap;
   color: #ffffff;
+}
+
+@media only screen and (max-width: 760px) {
+  .welcome_message {
+    display: none;
+  }
 }

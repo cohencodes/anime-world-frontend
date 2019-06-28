@@ -4,10 +4,35 @@
 }
 
 .comment_form button {
+  font-size: 1.1rem;
   width: 100px;
   margin: 5px auto;
 }
 
 .comment_form input {
+  font-size: 1.1rem;
   width: 70%;
+}
+
+.comment_form input::placeholder {
+  font-size: 1rem;
+}
+
+#checkmark {
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 760px) {
+  .comment_form {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .comment_form input {
+    font-size: 1rem;
+    width: 100%;
+    margin: 10px auto;
+  }
+  .comment_form input::placeholder {
+    font-size: 0.7rem;
+  }
 }

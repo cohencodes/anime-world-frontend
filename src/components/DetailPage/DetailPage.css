@@ -32,3 +32,13 @@
 p.synopsis {
   margin: 40px;
 }
+
+@media only screen and (max-width: 760px) {
+  .detail_container {
+    max-width: 90%;
+  }
+
+  p.synopsis {
+    margin: 0 auto;
+  }
+}

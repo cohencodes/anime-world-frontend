@@ -22,3 +22,9 @@
 .youtube_ul a {
   color: #ffffff;
 }
+
+@media only screen and (max-width: 760px) {
+  .youtube_ul {
+    max-width: 100%;
+  }
+}

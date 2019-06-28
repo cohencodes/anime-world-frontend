@@ -1,16 +1,34 @@
-.search_form {
-  max-width: 50%;
-}
-
 .search_form label {
   display: block;
   text-align: left;
 }
 
 .search_form input {
+  font-size: 1.2rem;
   width: 100%;
+  margin: 15px auto;
 }
 
 .search_button {
+  font-size: 1.2rem;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 760px) {
+  .search_form input {
+    font-size: 1rem;
+  }
+
+  .search_button {
+    font-size: 1rem;
+  }
+
+  .search_form::placeholder {
+    font-size: 0.6rem;
+  }
+
+  .search_form {
+    margin: 0 auto;
+    width: 500px;
+  }
 }

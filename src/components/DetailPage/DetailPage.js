@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import YouTubeVideos from '../YouTubeVideos/YouTubeVideos';
-import CommentForm from '../CommentForm/CommentForm';
 import Forum from '../Forum/Forum';
-import './DetailPage.css';
+import YouTubeVideos from '../YouTubeVideos/YouTubeVideos';
 import TokenService from '../../services/token-service';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import config from '../../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Emoji from '../Emoji/Emoji';
+import './DetailPage.css';
 
 class DetailPage extends Component {
   state = {
@@ -48,12 +47,7 @@ class DetailPage extends Component {
   };
 
   render() {
-    const {
-      showData,
-      videoResults,
-      comments,
-      handleUpdateComments
-    } = this.props;
+    const { showData, videoResults } = this.props;
     const { error, addedToWatchlist } = this.state;
     return (
       <>
@@ -105,13 +99,7 @@ class DetailPage extends Component {
           </p>
         </section>
         <section>
-          <CommentForm
-            title={showData.title}
-            handleUpdateComments={handleUpdateComments}
-          />
-        </section>
-        <section>
-          <Forum comments={comments} />
+          <Forum title={showData.title} />
         </section>
         <section>
           <YouTubeVideos videoResults={videoResults} />
