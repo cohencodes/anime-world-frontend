@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ForumApiService from '../../services/forum-api-service';
 import TokenService from '../../services/token-service';
-import Comments from '../Comments/Comments';
+import Forum from '../Forum/Forum';
 import Emoji from '../Emoji/Emoji';
 import './CommentForm.css';
 
@@ -75,7 +75,7 @@ class CommentForm extends Component {
             />
           ) : null}
         </form>
-        <Comments title={title} commentPosted={comment_posted} />
+        <Forum title={title} commentPosted={comment_posted} />
       </section>
     );
   }

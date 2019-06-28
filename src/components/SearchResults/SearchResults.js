@@ -15,6 +15,7 @@ class SearchResults extends Component {
       showDetailPage: true,
       isLoading: false
     });
+    this.props.getTitle(showData.title);
   };
 
   render() {

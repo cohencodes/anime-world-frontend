@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Forum from '../Forum/Forum';
 import YouTubeVideos from '../YouTubeVideos/YouTubeVideos';
 import TokenService from '../../services/token-service';
+import CommentForm from '../../components/CommentForm/CommentForm';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import config from '../../config';
@@ -98,12 +98,8 @@ class DetailPage extends Component {
             </a>
           </p>
         </section>
-        <section>
-          <Forum title={showData.title} />
-        </section>
-        <section>
-          <YouTubeVideos videoResults={videoResults} />
-        </section>
+        <CommentForm title={showData.title} />
+        <YouTubeVideos videoResults={videoResults} />
       </>
     );
   }
