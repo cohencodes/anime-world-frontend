@@ -33,7 +33,7 @@
     margin: 10px auto;
   }
   .comment_form input::placeholder {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   #checkmark {
