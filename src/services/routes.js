@@ -4,6 +4,7 @@ import Login from '../components/Login/Login';
 import Search from '../components/Search/Search';
 import DetailPage from '../components/DetailPage/DetailPage';
 import WatchList from '../components/WatchList/WatchList';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
 
 const routes = [
   {
@@ -33,6 +34,10 @@ const routes = [
   {
     path: '/watchlist',
     component: WatchList
+  },
+  {
+    path: '*',
+    component: ErrorPage
   }
 ];
 
