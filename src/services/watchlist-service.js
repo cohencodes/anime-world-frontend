@@ -27,6 +27,27 @@ const WatchListService = {
         return error.response.data.error;
       });
   },
+  changeEpisodeNumber(changeData) {
+    const authToken = TokenService.getAuthToken();
+    const decoded = jwtDecode(authToken);
+    axios({
+      method: 'put',
+      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/change`,
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      data: {
+        user_id: decoded.user_id,
+        episode_number: changeData.episode_number,
+        title: changeData.title
+      }
+    })
+      .then(res => {
+        return res;
+      })
+      .catch(error => error.response.data.error);
+  },
   deleteFromWatchList(title) {
     const authToken = TokenService.getAuthToken();
     const decoded = jwtDecode(authToken);
@@ -62,27 +83,6 @@ const WatchListService = {
         return res;
       })
       .catch(error => error.response.data.errors);
-  },
-  changeEpisodeNumber(changeData) {
-    const authToken = TokenService.getAuthToken();
-    const decoded = jwtDecode(authToken);
-    axios({
-      method: 'put',
-      url: `${config.API_ENDPOINT}/watchlist/${decoded.user_id}/change`,
-      headers: {
-        authorization: `bearer ${TokenService.getAuthToken()}`,
-        'content-type': 'application/json'
-      },
-      data: {
-        user_id: decoded.user_id,
-        episode_number: changeData.episode_number,
-        title: changeData.title
-      }
-    })
-      .then(res => {
-        return res;
-      })
-      .catch(error => error.response.data.error);
   }
 };
 

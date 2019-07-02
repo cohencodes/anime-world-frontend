@@ -31,7 +31,7 @@ AnimeWorld uses the following API's:
 
 - Axios
 - React Router v5
-- JsonWebToken / Jwt-Decode
+- JSONWebToken / Jwt-Decode
 - Postgrator
 - Zeit / Heroku
 - Jest / Enzyme
