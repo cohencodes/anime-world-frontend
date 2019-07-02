@@ -1,5 +1,5 @@
 .login_form {
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .login_form label {
@@ -9,4 +9,10 @@
 
 .login_form input {
   width: 100%;
+}
+
+@media only screen and (max-width: 760px) {
+  .login_form {
+    max-width: 80%;
+  }
 }

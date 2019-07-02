@@ -9,7 +9,8 @@ class LandingPage extends Component {
   state = {
     recommendations: [],
     vids: [],
-    isLoading: true
+    isLoading: true,
+    showLandingInfo: true
   };
 
   componentDidMount = () => {
@@ -22,22 +23,30 @@ class LandingPage extends Component {
     this.setState({ recommendations, isLoading: false });
   };
 
-  getVids = async () => {
-    const vids = await YouTubeApiService.getVideos();
+  getVids = async title => {
+    const vids = await YouTubeApiService.getVideos(title);
 
-    this.setState({ vids, isLoading: false });
+    this.setState({ vids, isLoading: false, showLandingInfo: false });
+  };
+
+  getTitle = title => {
+    this.getVids(title);
   };
 
   render() {
-    const { recommendations, vids, isLoading } = this.state;
+    const { recommendations, vids, isLoading, showLandingInfo } = this.state;
     return (
       <>
         <h1 className="banner">AnimeWorld</h1>
-        <LandingInfo />
+        {showLandingInfo ? <LandingInfo /> : null}
         {!isLoading ? (
           <>
             <h2>Discover Top Anime</h2>
-            <SearchResults showResults={recommendations} videoResults={vids} />
+            <SearchResults
+              showResults={recommendations}
+              videoResults={vids}
+              getTitle={this.getTitle}
+            />
           </>
         ) : (
           <h3>Loading...</h3>

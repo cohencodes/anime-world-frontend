@@ -4,7 +4,7 @@ import './YouTubeVideos.css';
 const YouTubeVideos = props => {
   const { videoResults } = props;
   return (
-    <>
+    <section>
       <h1>YouTube Videos</h1>
       <ul className="youtube_ul">
         {videoResults.length === 0 && (
@@ -38,7 +38,7 @@ const YouTubeVideos = props => {
           );
         })}
       </ul>
-    </>
+    </section>
   );
 };
 

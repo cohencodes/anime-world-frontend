@@ -17,7 +17,10 @@ class Footer extends Component {
       <footer>
         <div className="footer-flex">
           <p>
-            Built by: <a href="https://github.com/cohencodes">@cohencodes</a>
+            Built by:{' '}
+            <a href="https://github.com/cohencodes" target="_blank">
+              @cohencodes
+            </a>
           </p>
           <button className="scroll-button" onClick={this.handleClick}>
             <FontAwesomeIcon

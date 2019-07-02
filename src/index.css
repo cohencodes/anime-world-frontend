@@ -33,7 +33,7 @@ h1 {
 form {
   border: 2px solid #ab24a1;
   width: 70%;
-  max-width: 70%;
+  max-width: 90%;
   margin: 0px auto;
   padding: 50px;
 }
@@ -59,6 +59,7 @@ input::placeholder {
 button {
   padding: 12px;
   font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
   color: #ffffff;
   background-color: #ab24a1;
   display: block;
@@ -85,6 +86,91 @@ img {
   margin-top: 400px;
 }
 
-/* 
-section:nth-child(even) {
-} */
+@media only screen and (max-width: 760px) {
+  h1 {
+    margin-top: 18%;
+  }
+
+  form {
+    width: 100%;
+    padding: 20px;
+    border: none;
+  }
+}
+
+/*** Styles added to fix the issue with zoom in on iphone ***/
+/* iPhone < 5: */
+@media screen and (device-aspect-ratio: 2/3) {
+  select,
+  textarea,
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'] {
+    font-size: 16px;
+  }
+}
+
+/* iPhone 5, 5C, 5S, iPod Touch 5g */
+@media screen and (device-aspect-ratio: 40/71) {
+  select,
+  textarea,
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'] {
+    font-size: 16px;
+  }
+}
+
+/* iPhone 6, iPhone 6s, iPhone 7 portrait/landscape */
+@media screen and (device-aspect-ratio: 375/667) {
+  select,
+  textarea,
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'] {
+    font-size: 16px;
+  }
+}
+
+/* iPhone 6 Plus, iPhone 6s Plus, iPhone 7 Plus portrait/landscape */
+@media screen and (device-aspect-ratio: 9/16) {
+  select,
+  textarea,
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'] {
+    font-size: 16px;
+  }
+}

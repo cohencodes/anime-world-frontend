@@ -4,18 +4,25 @@ import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import config from '../../config';
 import WatchListForm from '../WatchListForm/WatchListForm';
+import { Redirect } from 'react-router-dom';
 import './WatchList.css';
 
 class WatchList extends Component {
   state = {
     watchList: [],
     edited: false,
-    isLoading: true,
-    dataChanged: false
+    isLoading: true
   };
 
   componentDidMount = () => {
-    this.getWatchList();
+    if (TokenService.hasAuthToken()) {
+      this.timer = setInterval(() => this.getWatchList(), 1000);
+    }
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer);
+    this.timer = null;
   };
 
   getWatchList = () => {
@@ -35,12 +42,10 @@ class WatchList extends Component {
       .catch(error => error.response.data.error);
   };
 
-  handleDataChanged = () => {
-    this.getWatchList();
-    this.setState({ dataChanged: true, isLoading: false });
-  };
-
   render() {
+    if (!TokenService.hasAuthToken()) {
+      return <Redirect to="/home" />;
+    }
     const { watchList, isLoading } = this.state;
     let watchListData;
     if (!isLoading) {
@@ -55,10 +60,7 @@ class WatchList extends Component {
                 <span>{show.episode_number}</span>
               </dd>
             </dl>
-            <WatchListForm
-              title={show.title}
-              handleDataChanged={this.handleDataChanged}
-            />
+            <WatchListForm title={show.title} />
           </li>
         );
       });

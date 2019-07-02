@@ -1,35 +1,77 @@
 import React, { Component } from 'react';
-import Comments from '../Comments/Comments';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ForumApiService from '../../services/forum-api-service';
+import TokenService from '../../services/token-service';
+import axios from 'axios';
+import config from '../../config';
 import './Forum.css';
 
 class Forum extends Component {
   state = {
-    deleteComment: false,
-    editComment: false
+    comments: [],
+    isFetching: false
   };
+
+  componentDidMount = () => {
+    this.handleGetComments();
+    this.timer = setInterval(() => this.handleGetComments(), 1000);
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.timer);
+    this.timer = null;
+  };
+
+  handleGetComments = () => {
+    const { title } = this.props;
+    axios({
+      method: 'get',
+      url: `${config.API_ENDPOINT}/forum/${title}`,
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      }
+    })
+      .then(res => {
+        this.setState({ comments: res.data });
+      })
+      .catch(error => error.response.data.errors);
+  };
+
+  handleDeleteComment = async id => {
+    await ForumApiService.deleteComment(id);
+  };
+
   handleEditComment = (id, newComment) => {
     // TODO: add input button to comment component
     // TODO: functionality for editing comments
     console.log('edit comment', id, newComment);
   };
 
-  handleDeleteComment = async id => {
-    await ForumApiService.deleteComment(id);
-    this.setState({ deleteComment: true });
-  };
   render() {
-    const { comments } = this.props;
+    const { comments } = this.state;
+    const commentList = comments.map((comment, index) => {
+      return (
+        <li key={index}>
+          <FontAwesomeIcon icon="comment" color="#ab24a1" size="lg" />
+          <p>{comment.user_name}</p>
+          <p className="comment">{comment.comment}</p>
+          <p>{comment.date_created.slice(0, 7)}</p>
+          <button onClick={() => this.handleEditComment(comment.id)}>
+            {' '}
+            <FontAwesomeIcon icon="edit" color="#ffffff" size="sm" />{' '}
+          </button>
+          <button onClick={() => this.handleDeleteComment(comment.id)}>
+            {' '}
+            <FontAwesomeIcon icon="trash-alt" color="#ffffff" size="sm" />
+          </button>
+        </li>
+      );
+    });
     return (
       <section className="forum_container">
         <h1>Comments</h1>
-        <ul>
-          <Comments
-            comments={comments}
-            edit={this.handleEditComment}
-            remove={this.handleDeleteComment}
-          />
-        </ul>
+        <ul>{commentList}</ul>
       </section>
     );
   }

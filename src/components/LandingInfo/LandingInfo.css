@@ -1,16 +1,30 @@
 .landing_info {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 5%;
   margin-bottom: 5%;
   padding: 20px;
-
-  /* max-width: 45%;
-  margin: 100px auto; */
 }
 
 .landing_info section {
   padding: 0;
   width: calc(100% / 3);
+}
+
+@media only screen and (max-width: 760px) {
+  .landing_info {
+    display: block;
+  }
+
+  .landing_info section {
+    width: auto;
+    max-width: 80%;
+    margin: 20px auto;
+  }
+
+  .landing_info h3 {
+    font-size: 1rem;
+  }
 }

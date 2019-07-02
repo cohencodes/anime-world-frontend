@@ -10,7 +10,12 @@ import {
   faStickyNote,
   faInfoCircle,
   faEdit,
-  faTrashAlt
+  faTrashAlt,
+  faPlayCircle,
+  faCheckCircle,
+  faComment,
+  faComments,
+  faArrowAltCircleUp
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -20,7 +25,12 @@ library.add(
   faStickyNote,
   faInfoCircle,
   faEdit,
-  faTrashAlt
+  faTrashAlt,
+  faPlayCircle,
+  faCheckCircle,
+  faComment,
+  faComments,
+  faArrowAltCircleUp
 );
 
 it('renders without crashing', () => {

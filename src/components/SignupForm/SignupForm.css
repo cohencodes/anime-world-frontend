@@ -1,5 +1,5 @@
 .signup_form {
-  max-width: 50%;
+  max-width: 60%;
 }
 
 .signup_form label {
@@ -9,4 +9,10 @@
 
 .signup_form input {
   width: 100%;
+}
+
+@media only screen and (max-width: 760px) {
+  .signup_form {
+    max-width: 80%;
+  }
 }

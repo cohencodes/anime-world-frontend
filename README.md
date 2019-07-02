@@ -1,22 +1,24 @@
 # Anime World
 
-#### Live: https://anime-world.cohencodes.now.sh/
+### Live: https://anime-world.cohencodes.now.sh/
 
-Anime World is a react app using the Jikan API to give fans the ability to
+This app is for anime fans who want a centralized place to access show information, user ratings, videos, and create watchlists to track their favorite series.
+Users are also recommended top anime shows, and are able to save their current episode in their watchlists.
 
-- Access to details and user ratings of any anime show
+### Screenshots
+
+![Home Page](https://imgur.com/8aPUDhZ.png) ![WatchList](https://imgur.com/oZu3Loe.png)
+
+- Access details and user ratings of any anime show
 - Forum comment and debate on anime shows
 - Create watchlists, save shows and track episodes they are on
 - Get trailers, clips, and youtube videos for each show
 
-## Screenshots
+AnimeWorld uses the following API's:
 
-![Home Page](https://imgur.com/8aPUDhZ.png) ![WatchList](https://imgur.com/oZu3Loe.png)
+[Jikan Api](https://jikan.docs.apiary.io/#introduction/announcement-17th-may,-2019)
 
-Anime uses the following API's:
-
-- Jikan API
-- YouTube API
+[YouTube Api](https://developers.google.com/youtube/v3/getting-started)
 
 ## Stack
 
@@ -25,7 +27,17 @@ Anime uses the following API's:
 - Express.js
 - PostgreSQL
 
-Deployed to Zeit (frontend) and Heroku (backend)
+### Testing & other Technologies
+
+- Axios
+- React Router v5
+- JSONWebToken / Jwt-Decode
+- Postgrator
+- Zeit / Heroku
+- Jest / Enzyme
+- Mocha / Chai / Supertest
+
+Deployed to Zeit (frontend) and Heroku (backend) via Heroku Postgres
 
 Link to backend Repo: https://github.com/cohencodes/anime-world-backend
 

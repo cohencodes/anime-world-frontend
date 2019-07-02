@@ -10,6 +10,11 @@ class Navbar extends Component {
     const decoded = jwtDecode(authToken);
     return decoded.sub;
   };
+
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken();
+    window.location.reload();
+  };
   renderLoggedOutView = () => {
     return (
       <div className="nav-logged-out">
@@ -27,17 +32,12 @@ class Navbar extends Component {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/watchlist">WatchList</NavLink>
-        <NavLink to="/" onClick={this.handleLogoutClick}>
+        <NavLink to="/home" onClick={this.handleLogoutClick}>
           Logout
         </NavLink>
         <p className="welcome_message"> Welcome, {this.getUserName()}!</p>
       </div>
     );
-  };
-
-  handleLogoutClick = () => {
-    TokenService.clearAuthToken();
-    window.location.reload();
   };
 
   render() {
