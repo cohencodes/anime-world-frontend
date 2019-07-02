@@ -32,7 +32,7 @@ class Navbar extends Component {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/search">Search</NavLink>
         <NavLink to="/watchlist">WatchList</NavLink>
-        <NavLink to="/home" onClick={this.handleLogoutClick}>
+        <NavLink to="/" onClick={this.handleLogoutClick}>
           Logout
         </NavLink>
         <p className="welcome_message"> Welcome, {this.getUserName()}!</p>

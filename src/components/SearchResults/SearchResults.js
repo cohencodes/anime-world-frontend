@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import DetailPage from '../DetailPage/DetailPage';
+import { Link } from 'react-router-dom';
 import './SearchResults.css';
 
 class SearchResults extends Component {
+  static defaultProps = {
+    getTitle: () => {}
+  };
+
   state = {
     showDetailPage: false,
     showData: {},
@@ -10,6 +15,7 @@ class SearchResults extends Component {
   };
 
   renderDetailPage = showData => {
+    console.log('renderdetail ran');
     this.setState({
       showData,
       showDetailPage: true,
@@ -28,9 +34,20 @@ class SearchResults extends Component {
           <li key={show.mal_id}>
             <img src={show.image_url} alt={show.image_url} />
             <p>{show.title}</p>
-            <button onClick={() => this.renderDetailPage(show)}>
+            <Link
+              to={{
+                pathname: `/detailpage/${show.title}`,
+                state: {
+                  showData: show,
+                  videoResults,
+                  showDetailPage: true
+                }
+              }}
+              onClick={() => this.renderDetailPage(show)}
+              className="link_button"
+            >
               View Details
-            </button>
+            </Link>
           </li>
         );
       });
@@ -40,9 +57,20 @@ class SearchResults extends Component {
         <li key={show.mal_id}>
           <img src={show.image_url} alt={show.image_url} />
           <p className="show_title">{show.title.slice(0, 19)} ...</p>
-          <button onClick={() => this.renderDetailPage(show)}>
+          <Link
+            to={{
+              pathname: `/detailpage/${show.title}`,
+              state: {
+                showData: show,
+                videoResults,
+                showDetailPage: true
+              }
+            }}
+            onClick={() => this.renderDetailPage(show)}
+            className="link_button"
+          >
             View Details
-          </button>
+          </Link>
         </li>
       );
     });

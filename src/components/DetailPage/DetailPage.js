@@ -47,7 +47,7 @@ class DetailPage extends Component {
   };
 
   render() {
-    const { showData, videoResults } = this.props;
+    const { showData, videoResults } = this.props.location.state;
     const { error, addedToWatchlist } = this.state;
     return (
       <>

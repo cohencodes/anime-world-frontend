@@ -8,7 +8,7 @@ const YouTubeVideos = props => {
       <h1>YouTube Videos</h1>
       <ul className="youtube_ul">
         {videoResults.length === 0 && (
-          <p>Sorry, these aren't available right now :)</p>
+          <p>Sorry, these aren't available right now</p>
         )}
         {videoResults.map(video => {
           return (

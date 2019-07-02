@@ -48,7 +48,7 @@ class Login extends Component {
   render() {
     const { error } = this.state;
     if (TokenService.hasAuthToken()) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/" />;
     }
     return (
       <section>

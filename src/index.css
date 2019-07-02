@@ -56,7 +56,8 @@ input::placeholder {
   color: #6db65b;
 }
 
-button {
+button,
+.link_button {
   padding: 12px;
   font-family: 'Rubik', sans-serif;
   font-size: 1.1rem;
@@ -67,7 +68,8 @@ button {
   margin: 20px auto;
 }
 
-button:hover {
+button:hover,
+.link_button:hover {
   background-color: #212528;
   color: #ffffff;
   transition: all 0.4s ease;
