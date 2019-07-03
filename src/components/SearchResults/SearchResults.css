@@ -13,7 +13,31 @@
   padding: 5px;
 }
 
-/* .show_title {
-  max-width: 200px;
-  margin: 0 auto;
-} */
+.link_button_search {
+  padding: 12px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  background-color: #ab24a1;
+  display: block;
+  cursor: pointer;
+  margin: 20px auto;
+  margin-top: 7%;
+  max-width: 18%;
+}
+
+.results_title {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 760px) {
+  .link_button_search {
+    margin: 20px auto;
+    margin-top: 22%;
+    max-width: 40%;
+  }
+
+  .results_title {
+    font-size: 1.1rem;
+  }
+}

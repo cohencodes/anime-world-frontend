@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchResults from '../SearchResults/SearchResults';
 import JikanApiService from '../../services/jikan-api-service';
 import YouTubeApiService from '../../services/youtube-api-service';
+import { Redirect } from 'react-router-dom';
 import './Search.css';
 
 class Search extends Component {
@@ -95,7 +96,8 @@ class Search extends Component {
       videos,
       characters,
       showTitle,
-      searchSubmitted
+      searchSubmitted,
+      isLoading
     } = this.state;
     return (
       <>
@@ -117,32 +119,28 @@ class Search extends Component {
             </button>
           </form>
         </section>
-        {recs.length > 0 ? (
-          !searchSubmitted ? (
-            <>
-              <h2>Recommended For You</h2>
-              <SearchResults
-                showResults={recs}
-                videoResults={videos}
-                characterResults={characters}
-              />
-            </>
-          ) : null
-        ) : null}
-        {shows.length > 0 ? (
+        {!isLoading ? (
           <>
-            <h2>
-              Showing Results for{' '}
-              {showTitle &&
-                showTitle
-                  .split(' ')
-                  .map(word => word[0].toUpperCase() + word.slice(1))
-                  .join(' ')}
-            </h2>
+            <h2 className="rec_header">Recommended For You</h2>
             <SearchResults
-              showResults={shows}
+              recs={recs}
               videoResults={videos}
               characterResults={characters}
+            />
+          </>
+        ) : null}
+        {searchSubmitted ? (
+          <>
+            <Redirect
+              to={{
+                pathname: `/results/${showTitle}`,
+                state: {
+                  showTitle,
+                  showResults: shows,
+                  videoResults: videos,
+                  characterResults: characters
+                }
+              }}
             />
           </>
         ) : null}

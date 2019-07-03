@@ -43,7 +43,7 @@ class LandingPage extends Component {
           <>
             <h2>Discover Top Anime</h2>
             <SearchResults
-              showResults={recommendations}
+              recs={recommendations}
               videoResults={vids}
               getTitle={this.getTitle}
             />

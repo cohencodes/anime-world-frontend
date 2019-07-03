@@ -15,7 +15,6 @@ class SearchResults extends Component {
   };
 
   renderDetailPage = showData => {
-    console.log('renderdetail ran');
     this.setState({
       showData,
       showDetailPage: true,
@@ -25,15 +24,16 @@ class SearchResults extends Component {
   };
 
   render() {
-    const { showResults, videoResults, recs } = this.props;
+    const { videoResults, recs } = this.props;
     const { isLoading, showDetailPage, showData } = this.state;
     let showList;
+    let title;
     if (recs) {
       showList = recs.map(show => {
         return (
           <li key={show.mal_id}>
             <img src={show.image_url} alt={show.image_url} />
-            <p>{show.title}</p>
+            <p className="show_title">{show.title.slice(0, 19)} ...</p>
             <Link
               to={{
                 pathname: `/detailpage/${show.title}`,
@@ -52,32 +52,60 @@ class SearchResults extends Component {
         );
       });
     }
-    showList = showResults.map(show => {
-      return (
-        <li key={show.mal_id}>
-          <img src={show.image_url} alt={show.image_url} />
-          <p className="show_title">{show.title.slice(0, 19)} ...</p>
-          <Link
-            to={{
-              pathname: `/detailpage/${show.title}`,
-              state: {
-                showData: show,
-                videoResults,
-                showDetailPage: true
-              }
-            }}
-            onClick={() => this.renderDetailPage(show)}
-            className="link_button"
-          >
-            View Details
-          </Link>
-        </li>
-      );
-    });
-
+    if (this.props.location !== undefined) {
+      const {
+        showResults,
+        videoResults,
+        showTitle
+      } = this.props.location.state;
+      title = showTitle;
+      showList = showResults.map(show => {
+        return (
+          <li key={show.mal_id}>
+            <img src={show.image_url} alt={show.image_url} />
+            <p className="show_title">{show.title.slice(0, 19)} ...</p>
+            <Link
+              to={{
+                pathname: `/detailpage/${show.title}`,
+                state: {
+                  showData: show,
+                  videoResults,
+                  showDetailPage: true
+                }
+              }}
+              onClick={() => this.renderDetailPage(show)}
+              className="link_button"
+            >
+              View Details
+            </Link>
+          </li>
+        );
+      });
+    }
     return (
       <section className="search-results">
-        {!showDetailPage ? <ul className="show-list">{showList}</ul> : null}
+        {!showDetailPage ? (
+          <>
+            {/* this is so the search again button does not show up on recommendation renders */}
+            {!recs && (
+              <>
+                <Link to="/search" className="link_button_search">
+                  Search Again
+                </Link>
+              </>
+            )}
+            {title && (
+              <h1 className="results_title">
+                Showing Results for{' '}
+                {title
+                  .split(' ')
+                  .map(word => word[0].toUpperCase() + word.slice(1))
+                  .join(' ')}
+              </h1>
+            )}
+            <ul className="show-list">{showList}</ul>
+          </>
+        ) : null}
         {showDetailPage ? (
           !isLoading ? (
             <DetailPage showData={showData} videoResults={videoResults} />

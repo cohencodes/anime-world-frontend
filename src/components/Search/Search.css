@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+.search_again_button {
+  margin-top: 7%;
+}
+
 @media only screen and (max-width: 760px) {
   .search_form input {
     font-size: 1rem;
@@ -31,4 +35,9 @@
     margin: 0 auto;
     width: 500px;
   }
+}
+
+.rec_header {
+  margin-top: 50px;
+  margin-bottom: 0px;
 }
