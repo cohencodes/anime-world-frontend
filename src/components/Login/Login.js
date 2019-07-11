@@ -69,7 +69,7 @@ class Login extends Component {
             <input
               type="text"
               name="user_name"
-              id="username"
+              id="user_name"
               placeholder="username..."
             />
           </div>
