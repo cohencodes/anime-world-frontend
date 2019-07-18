@@ -1,11 +1,16 @@
 .detail_container {
-  max-width: 60%;
+  max-width: 425px;
   margin: 0 auto;
   margin-top: 7%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: left;
 }
 
 .detail_container h1 {
   margin: 0;
+  text-align: center;
 }
 
 .detail_container h4 {
@@ -32,16 +37,29 @@
 }
 
 p.synopsis {
-  margin: 40px;
+  margin-bottom: 20px;
+}
+
+.left-col {
+  width: 50%;
+}
+
+.right-col {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.header {
+  flex-basis: 100%;
 }
 
 @media only screen and (max-width: 760px) {
   .detail_container {
-    max-width: 90%;
-    margin-top: 9%;
+    margin-top: 12%;
   }
 
   p.synopsis {
+    width: 90%;
     margin: 0 auto;
   }
 }

@@ -3,7 +3,7 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   list-style: none;
-  max-width: 70%;
+  max-width: 1080px;
   margin: 50px auto;
   padding: 4% 0;
   border: 2px solid #ab24a1;

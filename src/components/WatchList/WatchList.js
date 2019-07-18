@@ -44,7 +44,7 @@ class WatchList extends Component {
 
   render() {
     if (!TokenService.hasAuthToken()) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/" />;
     }
     const { watchList, isLoading } = this.state;
     let watchListData;
@@ -52,7 +52,7 @@ class WatchList extends Component {
       watchListData = watchList.data.map(show => {
         return (
           <li key={show.id} className="watchlist_li">
-            <p>{show.title}</p>
+            <p>{show.title.slice(0, 19)}</p>
             <img src={show.image_url} alt={show.title} />
             <dl>
               <dt>Current Episode</dt>

@@ -52,16 +52,20 @@ class DetailPage extends Component {
     return (
       <>
         <section className="detail_container">
-          <h1>{showData.title}</h1>
-          <img src={showData.image_url} alt={showData.title} />
-          <div className="details">
+          <div className="header">
+            <h1>{showData.title}</h1>
+          </div>
+          <div className="left-col">
+            <img src={showData.image_url} alt={showData.title} />
+          </div>
+          <div className="details right-col">
             <h4>Details</h4>
             <p>
               <span className="bold">SCORE:</span>{' '}
               <span className="p_detail">{showData.score}</span>
             </p>
             <p>
-              <span className="bold">Currently Airing:</span>{' '}
+              <span className="bold">Airing:</span>{' '}
               {showData.airing ? (
                 <span className="p_detail">Yes</span>
               ) : (

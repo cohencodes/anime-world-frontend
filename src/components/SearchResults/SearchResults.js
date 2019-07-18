@@ -62,8 +62,8 @@ class SearchResults extends Component {
       showList = showResults.map(show => {
         return (
           <li key={show.mal_id}>
-            <img src={show.image_url} alt={show.image_url} />
             <p className="show_title">{show.title.slice(0, 19)} ...</p>
+            <img src={show.image_url} alt={show.image_url} />
             <Link
               to={{
                 pathname: `/detailpage/${show.title}`,

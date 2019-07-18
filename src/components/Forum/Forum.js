@@ -9,7 +9,9 @@ import './Forum.css';
 class Forum extends Component {
   state = {
     comments: [],
-    isFetching: false
+    isFetching: false,
+    authenticatedComments: [],
+    isAuthenticated: false
   };
 
   componentDidMount = () => {
@@ -21,6 +23,20 @@ class Forum extends Component {
     clearInterval(this.timer);
     this.timer = null;
   };
+
+  // TODO: authenticate user comments for forum
+
+  // authenticateUser = comments => {
+  //   const authToken = TokenService.getAuthToken();
+  //   const decoded = jwtDecode(authToken);
+  //   let authenticatedComments = comments.filter(comment => {
+  //     if (comment.user_name === decoded.sub) {
+  //       return comment;
+  //     }
+  //   });
+
+  //   this.setState({ authenticatedComments, isAuthenticated: true });
+  // };
 
   handleGetComments = () => {
     const { title } = this.props;
@@ -57,14 +73,16 @@ class Forum extends Component {
           <p>{comment.user_name}</p>
           <p className="comment">{comment.comment}</p>
           <p>{comment.date_created.slice(0, 7)}</p>
-          <button onClick={() => this.handleEditComment(comment.id)}>
-            {' '}
-            <FontAwesomeIcon icon="edit" color="#ffffff" size="sm" />{' '}
-          </button>
-          <button onClick={() => this.handleDeleteComment(comment.id)}>
-            {' '}
-            <FontAwesomeIcon icon="trash-alt" color="#ffffff" size="sm" />
-          </button>
+          <div>
+            <button onClick={() => this.handleEditComment(comment.id)}>
+              {' '}
+              <FontAwesomeIcon icon="edit" color="#ffffff" size="sm" />{' '}
+            </button>
+            <button onClick={() => this.handleDeleteComment(comment.id)}>
+              {' '}
+              <FontAwesomeIcon icon="trash-alt" color="#ffffff" size="sm" />
+            </button>
+          </div>
         </li>
       );
     });
