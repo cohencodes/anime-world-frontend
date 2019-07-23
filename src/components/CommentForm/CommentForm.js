@@ -60,7 +60,7 @@ class CommentForm extends Component {
             id="comment"
             value={this.state.comment}
             onChange={this.handleChange}
-            placeholder={`say something about ${this.props.title}`}
+            placeholder={`Say something about ${this.props.title}`}
             required
           />
           <button type="submit" className="submit">

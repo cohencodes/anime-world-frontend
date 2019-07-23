@@ -61,11 +61,11 @@ class DetailPage extends Component {
           <div className="details right-col">
             <h4>Details</h4>
             <p>
-              <span className="bold">SCORE:</span>{' '}
+              <span className="bold">MyAnimeList Score:</span>{' '}
               <span className="p_detail">{showData.score}</span>
             </p>
             <p>
-              <span className="bold">Airing:</span>{' '}
+              <span className="bold"> Currently Airing:</span>{' '}
               {showData.airing ? (
                 <span className="p_detail">Yes</span>
               ) : (
@@ -73,7 +73,7 @@ class DetailPage extends Component {
               )}
             </p>
             <p>
-              <span className="bold">Episodes:</span>{' '}
+              <span className="bold">Episode Count:</span>{' '}
               <span className="p_detail">{showData.episodes}</span>
             </p>
             <p>

@@ -1,5 +1,6 @@
 .detail_container {
   max-width: 425px;
+  width: 425px;
   margin: 0 auto;
   margin-top: 7%;
   display: flex;
@@ -14,7 +15,13 @@
 }
 
 .detail_container h4 {
+  font-weight: normal;
   margin: 0;
+  margin-bottom: 15px;
+  color: #ffffff;
+  background-color: #ab24a1;
+  text-align: center;
+  padding: 3px;
 }
 
 .detail_container button {
@@ -30,10 +37,10 @@
 }
 
 .p_detail {
-  font-size: 1.2rem;
-  padding: 3px;
-  color: #ffffff;
-  background-color: #ab24a1;
+  font-size: 1.3rem;
+  font-weight: 800;
+  padding: 8px;
+  color: #1b2733;
 }
 
 p.synopsis {
@@ -46,7 +53,6 @@ p.synopsis {
 
 .right-col {
   width: 50%;
-  margin: 0 auto;
 }
 
 .header {
