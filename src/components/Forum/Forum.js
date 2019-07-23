@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ForumApiService from '../../services/forum-api-service';
 import TokenService from '../../services/token-service';
+import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import config from '../../config';
 import './Forum.css';
@@ -10,12 +11,12 @@ class Forum extends Component {
   state = {
     comments: [],
     isFetching: false,
-    authenticatedComments: [],
     isAuthenticated: false
   };
 
   componentDidMount = () => {
     this.handleGetComments();
+    // this.authenticateUser();
     this.timer = setInterval(() => this.handleGetComments(), 1000);
   };
 
@@ -23,20 +24,6 @@ class Forum extends Component {
     clearInterval(this.timer);
     this.timer = null;
   };
-
-  // TODO: authenticate user comments for forum
-
-  // authenticateUser = comments => {
-  //   const authToken = TokenService.getAuthToken();
-  //   const decoded = jwtDecode(authToken);
-  //   let authenticatedComments = comments.filter(comment => {
-  //     if (comment.user_name === decoded.sub) {
-  //       return comment;
-  //     }
-  //   });
-
-  //   this.setState({ authenticatedComments, isAuthenticated: true });
-  // };
 
   handleGetComments = () => {
     const { title } = this.props;
@@ -65,24 +52,33 @@ class Forum extends Component {
   };
 
   render() {
+    let isOwner;
     const { comments } = this.state;
     const commentList = comments.map((comment, index) => {
+      if (TokenService.hasAuthToken()) {
+        const authToken = TokenService.getAuthToken();
+        const decoded = jwtDecode(authToken);
+        isOwner = decoded.user_id === comment.user_id;
+      }
       return (
         <li key={index}>
           <FontAwesomeIcon icon="comment" color="#ab24a1" size="lg" />
           <p>{comment.user_name}</p>
           <p className="comment">{comment.comment}</p>
           <p>{comment.date_created.slice(0, 7)}</p>
-          <div>
-            <button onClick={() => this.handleEditComment(comment.id)}>
-              {' '}
-              <FontAwesomeIcon icon="edit" color="#ffffff" size="sm" />{' '}
-            </button>
-            <button onClick={() => this.handleDeleteComment(comment.id)}>
-              {' '}
-              <FontAwesomeIcon icon="trash-alt" color="#ffffff" size="sm" />
-            </button>
-          </div>
+
+          {isOwner && (
+            <div>
+              <button onClick={() => this.handleEditComment(comment.id)}>
+                {' '}
+                <FontAwesomeIcon icon="edit" color="#ffffff" size="sm" />{' '}
+              </button>
+              <button onClick={() => this.handleDeleteComment(comment.id)}>
+                {' '}
+                <FontAwesomeIcon icon="trash-alt" color="#ffffff" size="sm" />
+              </button>
+            </div>
+          )}
         </li>
       );
     });
