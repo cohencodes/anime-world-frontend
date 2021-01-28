@@ -41,4 +41,4 @@ Deployed to Zeit (frontend) and Heroku (backend) via Heroku Postgres
 
 Link to backend Repo: https://github.com/cohencodes/anime-world-backend
 
-Built by [@cohencodes](https://github.com/cohencodes)
+Built by [@aloncohenn](https://github.com/aloncohenn)
